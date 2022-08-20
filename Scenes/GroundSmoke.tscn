@@ -1,0 +1,35 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Animations/FX/WalkPoof/ground_poof0001.png" type="Texture" id=1]
+[ext_resource path="res://Animations/FX/WalkPoof/ground_poof0004.png" type="Texture" id=2]
+[ext_resource path="res://Animations/FX/WalkPoof/ground_poof0005.png" type="Texture" id=3]
+[ext_resource path="res://Animations/FX/WalkPoof/ground_poof0006.png" type="Texture" id=4]
+[ext_resource path="res://Animations/FX/WalkPoof/ground_poof0000.png" type="Texture" id=5]
+[ext_resource path="res://Animations/FX/WalkPoof/ground_poof0002.png" type="Texture" id=6]
+[ext_resource path="res://Animations/FX/WalkPoof/ground_poof0003.png" type="Texture" id=7]
+[ext_resource path="res://Animations/FX/WalkPoof/ground_poof0009.png" type="Texture" id=8]
+[ext_resource path="res://GroundSmoke.gd" type="Script" id=9]
+[ext_resource path="res://Animations/FX/WalkPoof/ground_poof0007.png" type="Texture" id=10]
+[ext_resource path="res://Animations/FX/WalkPoof/ground_poof0008.png" type="Texture" id=11]
+[ext_resource path="res://Animations/FX/WalkPoof/ground_poof0011.png" type="Texture" id=12]
+[ext_resource path="res://Animations/FX/WalkPoof/ground_poof0010.png" type="Texture" id=13]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
+
+[node name="SmokeSprite" type="AnimatedSprite"]
+position = Vector2( -7, 2 )
+scale = Vector2( 0.44, 0.44 )
+z_index = 1
+frames = SubResource( 1 )
+frame = 2
+playing = true
+offset = Vector2( 2.4138, 2.3448 )
+script = ExtResource( 9 )
+
+[connection signal="animation_finished" from="." to="." method="_on_SmokeSprite_animation_finished"]

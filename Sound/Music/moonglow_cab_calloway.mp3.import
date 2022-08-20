@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/moonglow_cab_calloway.mp3-e4d85e64270f16df0f07f707a9cf0eb9.mp3str"
+
+[deps]
+
+source_file="res://Sound/Music/moonglow_cab_calloway.mp3"
+dest_files=[ "res://.import/moonglow_cab_calloway.mp3-e4d85e64270f16df0f07f707a9cf0eb9.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

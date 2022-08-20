@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://G_SpriteFrames.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://Sound/retrojump.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Sound/land2.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Sound/run_loop.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Sound/kick.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Sound/kick_success.ogg" type="AudioStream" id=7]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 140, 160 )
+
+[node name="PlayerBody" type="KinematicBody2D"]
+scale = Vector2( 0.507223, 0.507223 )
+script = ExtResource( 1 )
+gravity = 3000
+jump_speed = 1500
+walk_speed = 1000
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -2.38419e-07, -159.693 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1.97152, 7.88608 )
+frames = ExtResource( 2 )
+animation = "Idle"
+frame = 5
+playing = true
+offset = Vector2( -7.88608, -240.526 )
+
+[node name="SoundJump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = 2.0
+mix_target = 2
+
+[node name="SoundLand" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -7.0
+mix_target = 2
+
+[node name="SoundRun" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -9.0
+mix_target = 2
+
+[node name="SoundKick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -7.0
+mix_target = 2
+
+[node name="SoundKickSuccess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -7.0
+mix_target = 2
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]

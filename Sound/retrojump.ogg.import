@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/retrojump.ogg-1bfbea805a48f66a295391f44a2af1c7.oggstr"
+
+[deps]
+
+source_file="res://Sound/retrojump.ogg"
+dest_files=[ "res://.import/retrojump.ogg-1bfbea805a48f66a295391f44a2af1c7.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
