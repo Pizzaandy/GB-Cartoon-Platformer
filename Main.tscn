@@ -1,4 +1,4 @@
-[gd_scene load_steps=217 format=2]
+[gd_scene load_steps=221 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Background/1_foreground.png" type="Texture" id=2]
@@ -210,13 +210,14 @@
 [ext_resource path="res://Sound/filmgrainnoise.ogg" type="AudioStream" id=208]
 [ext_resource path="res://Sound/Music/moonglow_cab_calloway.mp3" type="AudioStream" id=209]
 [ext_resource path="res://Background/7_sky.png" type="Texture" id=210]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1148.5, 54 )
+[ext_resource path="res://Background/4_letters.png" type="Texture" id=211]
+[ext_resource path="res://Background/3_mountains.png" type="Texture" id=212]
+[ext_resource path="res://Background/5_stars_front.png" type="Texture" id=213]
+[ext_resource path="res://Background/6_stars_back.png" type="Texture" id=214]
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = ExtResource( 207 )
-shader_param/blur_amount = 0.294
+shader_param/blur_amount = 0.4
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 206 )
@@ -225,7 +226,6 @@ shader_param/g_displacement = Vector2( 0, 0 )
 shader_param/b_displacement = Vector2( -0.3, 0.3 )
 
 [sub_resource type="CanvasItemMaterial" id=3]
-blend_mode = 1
 light_mode = 1
 
 [sub_resource type="SpriteFrames" id=2]
@@ -236,36 +236,120 @@ animations = [ {
 "speed": 24.0
 } ]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1148.5, 54 )
+
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 29, 555.5 )
 
 [node name="Main" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -248, -106 )
+z_as_relative = false
+current = true
+script = ExtResource( 203 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Camera2D"]
+stream = ExtResource( 208 )
+volume_db = -12.0
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
+material = SubResource( 6 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -801.0
+margin_top = -519.0
+margin_right = -21.0
+margin_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 2700, 1700 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="Camera2D/CanvasLayer"]
+position = Vector2( -838, -550 )
+copy_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Camera2D/CanvasLayer"]
+material = SubResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Camera2D"]
+modulate = Color( 1, 1, 1, 0.0784314 )
+self_modulate = Color( 0.737255, 0.737255, 0.737255, 1 )
+material = SubResource( 3 )
+position = Vector2( 0, -3 )
+z_index = 1000
+frames = SubResource( 2 )
+frame = 112
+playing = true
+
+[node name="Timer" type="Timer" parent="Camera2D"]
+autostart = true
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 follow_viewport_enable = true
 
-[node name="Sky" type="Sprite" parent="ParallaxBackground"]
-position = Vector2( -0.999939, 110 )
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( -84, -848 )
+motion_scale = Vector2( 0, 0 )
+
+[node name="Sky" type="Sprite" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2( -934, 275 )
 scale = Vector2( 1.08714, 1.25343 )
-z_index = -100
+z_index = -1000
+z_as_relative = false
 texture = ExtResource( 210 )
 
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( -84, -848 )
+motion_scale = Vector2( 0.13, 0.1 )
+
+[node name="Stars2" type="Sprite" parent="ParallaxBackground/ParallaxLayer6"]
+position = Vector2( -971, 324 )
+scale = Vector2( 1.08714, 1.25343 )
+z_index = -1000
+z_as_relative = false
+texture = ExtResource( 214 )
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2( -84, -848 )
+motion_scale = Vector2( 0.03, 0.03 )
+
+[node name="Stars1" type="Sprite" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2( -966, 424 )
+scale = Vector2( 1.08714, 1.25343 )
+z_index = -1000
+z_as_relative = false
+texture = ExtResource( 213 )
+
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.25, 0.25 )
 
 [node name="Mountains" type="Sprite" parent="ParallaxBackground/ParallaxLayer3"]
-position = Vector2( 547, 274 )
+position = Vector2( -940, -545 )
+scale = Vector2( 1, 1.56 )
+texture = ExtResource( 212 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.3, 0.3 )
 
 [node name="Letters" type="Sprite" parent="ParallaxBackground/ParallaxLayer2"]
-position = Vector2( 547, 274 )
+position = Vector2( -1000, -542 )
+texture = ExtResource( 211 )
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2( -962, -542 )
-motion_scale = Vector2( 0.1, 0.1 )
+motion_scale = Vector2( 0.4, 0.4 )
 
 [node name="Midground" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( -18, -110 )
+position = Vector2( 67, -65 )
 scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 205 )
 
@@ -299,92 +383,6 @@ air_deceleration = 7000
 air_acceleration = 6000
 air_friction = 2000
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-smoothing_enabled = true
-script = ExtResource( 203 )
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Camera2D"]
-stream = ExtResource( 208 )
-volume_db = -10.0
-autoplay = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
-
-[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
-material = SubResource( 6 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 2700, 1700 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="BackBufferCopy" type="BackBufferCopy" parent="Camera2D/CanvasLayer"]
-position = Vector2( -838, -550 )
-copy_mode = 2
-
-[node name="ColorRect2" type="ColorRect" parent="Camera2D/CanvasLayer"]
-material = SubResource( 5 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Camera2D"]
-modulate = Color( 1, 1, 1, 0.117647 )
-material = SubResource( 3 )
-position = Vector2( 0, -3 )
-z_index = 1000
-frames = SubResource( 2 )
-frame = 167
-playing = true
-
-[node name="Timer" type="Timer" parent="Camera2D"]
-autostart = true
-
-[node name="Camera2D2" type="Camera2D" parent="."]
-current = true
-smoothing_enabled = true
-script = ExtResource( 203 )
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="Camera2D2"]
-stream = ExtResource( 208 )
-volume_db = -10.0
-autoplay = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D2"]
-
-[node name="ColorRect" type="ColorRect" parent="Camera2D2/CanvasLayer"]
-material = SubResource( 6 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-rect_min_size = Vector2( 2700, 1700 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="BackBufferCopy" type="BackBufferCopy" parent="Camera2D2/CanvasLayer"]
-position = Vector2( -838, -550 )
-copy_mode = 2
-
-[node name="ColorRect2" type="ColorRect" parent="Camera2D2/CanvasLayer"]
-material = SubResource( 5 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Camera2D2"]
-modulate = Color( 1, 1, 1, 0 )
-material = SubResource( 3 )
-position = Vector2( -14, -8 )
-z_index = 1000
-frames = SubResource( 2 )
-frame = 167
-playing = true
-
-[node name="Timer" type="Timer" parent="Camera2D2"]
-autostart = true
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 209 )
 
@@ -401,6 +399,3 @@ shape = SubResource( 7 )
 [connection signal="animation_finished" from="Camera2D/AnimatedSprite" to="Camera2D" method="_on_AnimatedSprite_animation_finished"]
 [connection signal="frame_changed" from="Camera2D/AnimatedSprite" to="Camera2D" method="_on_AnimatedSprite_frame_changed"]
 [connection signal="timeout" from="Camera2D/Timer" to="Camera2D" method="_on_Timer_timeout"]
-[connection signal="animation_finished" from="Camera2D2/AnimatedSprite" to="Camera2D2" method="_on_AnimatedSprite_animation_finished"]
-[connection signal="frame_changed" from="Camera2D2/AnimatedSprite" to="Camera2D2" method="_on_AnimatedSprite_frame_changed"]
-[connection signal="timeout" from="Camera2D2/Timer" to="Camera2D2" method="_on_Timer_timeout"]

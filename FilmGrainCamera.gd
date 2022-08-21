@@ -6,7 +6,7 @@ extends Camera2D
 # var b = "text"
 var currentViewportWidth = 0
 var currentViewportHeight = 0
-
+var camera_wave_t = 0
 
 func _ready():
 	currentViewportWidth = get_viewport().size.x
@@ -15,7 +15,7 @@ func _ready():
 	$Timer.wait_time = rand_range(5, 10)
 
 
-func _process(_delta):
+func _process(delta):
 	#resize_filmgrain_sprite()
 	var viewportWidth = get_viewport().size.x
 	var viewportHeight = get_viewport().size.y
@@ -23,6 +23,8 @@ func _process(_delta):
 		resize_filmgrain_sprite()
 		currentViewportWidth = viewportWidth
 		currentViewportHeight = viewportHeight
+	camera_wave_t = fmod(camera_wave_t + delta, 2*PI)
+	position = Vector2(0, -500 * (sin(camera_wave_t)+1))
 
 
 var do_blur = false
@@ -37,7 +39,7 @@ func _physics_process(_delta):
 		blur_amount -= blur_speed
 	if blur_amount >= 0.8:
 		do_blur = false
-	blur_amount = clamp(blur_amount, 0.2, 0.8) + 0.1*rand_range(-1,1)
+	blur_amount = clamp(blur_amount, 0.25, 0.8) + 0.1*rand_range(-1,1)
 
 
 func resize_filmgrain_sprite():
