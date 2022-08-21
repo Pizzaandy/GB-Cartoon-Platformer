@@ -336,7 +336,7 @@ material = SubResource( 3 )
 position = Vector2( 0, -3 )
 z_index = 1000
 frames = SubResource( 2 )
-frame = 108
+frame = 167
 playing = true
 
 [node name="Timer" type="Timer" parent="Camera2D"]
@@ -379,7 +379,7 @@ material = SubResource( 3 )
 position = Vector2( -14, -8 )
 z_index = 1000
 frames = SubResource( 2 )
-frame = 108
+frame = 167
 playing = true
 
 [node name="Timer" type="Timer" parent="Camera2D2"]

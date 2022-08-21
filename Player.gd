@@ -293,7 +293,8 @@ func _on_AnimatedSprite_animation_finished():
 func _on_AnimatedSprite_frame_changed():
 	#get_node("AnimatedSprite").scale = Vector2(x_stretch, y_stretch)
 	frame_updated = true
-	if $AnimatedSprite.animation == "Run":
+	if $AnimatedSprite.animation == "Run" and abs(velocity.x) > 0.9*walk_speed:
+		print(velocity.x)
 		if $AnimatedSprite.frame == 3 or $AnimatedSprite.frame == 9:
 			instance_create(ground_smoke_scene, position)
 			
