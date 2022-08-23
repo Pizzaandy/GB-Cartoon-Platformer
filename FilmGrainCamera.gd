@@ -1,12 +1,13 @@
 extends Camera2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var currentViewportWidth = 0
 var currentViewportHeight = 0
 var camera_wave_t = 0
+var bob_amount = 0
+
+var do_circle_wipe = false
+var circle_size = 1.05
+
 
 func _ready():
 	currentViewportWidth = get_viewport().size.x
@@ -24,7 +25,7 @@ func _process(delta):
 		currentViewportWidth = viewportWidth
 		currentViewportHeight = viewportHeight
 	camera_wave_t = fmod(camera_wave_t + delta, 2*PI)
-	position = Vector2(0, -500 * (sin(camera_wave_t)+1))
+	position = Vector2(0, bob_amount * (sin(camera_wave_t)+1))
 
 
 var do_blur = false
@@ -65,9 +66,19 @@ func choose_randomly(list_of_entries):
 
 func _on_AnimatedSprite_frame_changed():
 	get_node("CanvasLayer/ColorRect").material.set_shader_param("blur_amount", blur_amount)
-
+	if do_circle_wipe:
+		get_node("CanvasLayer/CircleWipe").material.set_shader_param("circle_size", circle_size)
+		circle_size = max(0, circle_size-0.04)
 
 func _on_Timer_timeout():
 	do_blur = true
 	$Timer.wait_time = rand_range(5, 13)
 	blur_speed = rand_range(0.02, 0.07)
+	
+
+func circle_wipe():
+	do_circle_wipe = true
+
+
+func _on_HoleR_do_camera_wipe():
+	circle_wipe()

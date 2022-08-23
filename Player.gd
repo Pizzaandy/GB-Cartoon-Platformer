@@ -33,6 +33,8 @@ var KICKING_FRAMES = 20
 var kick_frame_count = 0
 var kick_ended = false
 
+var frozen = false
+
 var velocity = Vector2(0, 0)
 var jump_pressed = false
 var jump_ended = false
@@ -62,13 +64,15 @@ func state_ground(dt):
 		#print("falling")
 		return
 	elif jump_buffer_count > 0:
-		velocity = player_jump(velocity)
+		if not frozen:
+			velocity = player_jump(velocity)
 		state = State.AIR
 		return
 	
 	if Input.is_action_just_pressed("kick"):
 		var _collision = move_and_collide(Vector2(0, -20))
-		kick()
+		if not frozen:
+			kick()
 		state = State.AIR
 		return
 	
@@ -98,6 +102,8 @@ func horizontal_move(
 		friction_deceleration,
 		dt
 	):
+	if frozen:
+		return Vector2(0, current_velocity.y)
 	if ( # if moving in opposite direction of velocity...
 		direction == -sign(current_velocity.x) and 
 		abs(current_velocity.x) > VELOCITY_EPSILON
@@ -257,11 +263,15 @@ func _physics_process(delta):
 	anim_finished = false
 	frame_updated = false
 	
+	if frozen:
+		current_anim = "Idle"
+	
 	get_node("AnimatedSprite").animation = current_anim
 	#get_node("AnimatedSprite").offset = Vector2(0, -0.25*sprite_height*y_stretch + 0.5*sprite_height)
 	
-	
-	if current_anim == "Run":
+	if frozen:
+		pass
+	elif current_anim == "Run":
 		var speed_scalar = clamp((abs(velocity.x)+20)/walk_speed, 0.5, 1)
 		$AnimatedSprite.speed_scale = speed_scalar
 		$SoundRun.pitch_scale = 0.955 * speed_scalar
@@ -272,7 +282,7 @@ func _physics_process(delta):
 		$SoundRun.stop()
 	
 	#var current_facing = get_node("AnimatedSprite").flip_h	
-	if current_anim != "Kick" and current_anim != "KickEnd":
+	if current_anim != "Kick" and current_anim != "KickEnd" and not frozen:
 		if move_direction == 1:
 			$AnimatedSprite.flip_h = false
 		if move_direction == -1:
