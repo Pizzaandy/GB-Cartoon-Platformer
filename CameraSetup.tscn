@@ -1,0 +1,293 @@
+[gd_scene load_steps=211 format=2]
+
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-037.jpg" type="Texture" id=1]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-017.jpg" type="Texture" id=2]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-033.jpg" type="Texture" id=3]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-032.jpg" type="Texture" id=4]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-035.jpg" type="Texture" id=5]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-036.jpg" type="Texture" id=6]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-074.jpg" type="Texture" id=7]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-046.jpg" type="Texture" id=8]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-068.jpg" type="Texture" id=9]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-060.jpg" type="Texture" id=10]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-050.jpg" type="Texture" id=11]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-048.jpg" type="Texture" id=12]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-054.jpg" type="Texture" id=13]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-059.jpg" type="Texture" id=14]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-146.jpg" type="Texture" id=15]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-188.jpg" type="Texture" id=16]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-063.jpg" type="Texture" id=17]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-151.jpg" type="Texture" id=18]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-198.jpg" type="Texture" id=19]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-199.jpg" type="Texture" id=20]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-175.jpg" type="Texture" id=21]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-158.jpg" type="Texture" id=22]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-047.jpg" type="Texture" id=23]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-049.jpg" type="Texture" id=24]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-082.jpg" type="Texture" id=25]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-065.jpg" type="Texture" id=26]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-051.jpg" type="Texture" id=27]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-053.jpg" type="Texture" id=28]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-052.jpg" type="Texture" id=29]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-075.jpg" type="Texture" id=30]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-161.jpg" type="Texture" id=31]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-165.jpg" type="Texture" id=32]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-064.jpg" type="Texture" id=33]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-179.jpg" type="Texture" id=34]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-077.jpg" type="Texture" id=35]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-073.jpg" type="Texture" id=36]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-066.jpg" type="Texture" id=37]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-062.jpg" type="Texture" id=38]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-043.jpg" type="Texture" id=39]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-040.jpg" type="Texture" id=40]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-061.jpg" type="Texture" id=41]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-067.jpg" type="Texture" id=42]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-087.jpg" type="Texture" id=43]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-055.jpg" type="Texture" id=44]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-042.jpg" type="Texture" id=45]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-004.jpg" type="Texture" id=46]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-057.jpg" type="Texture" id=47]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-183.jpg" type="Texture" id=48]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-070.jpg" type="Texture" id=49]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-164.jpg" type="Texture" id=50]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-162.jpg" type="Texture" id=51]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-154.jpg" type="Texture" id=52]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-163.jpg" type="Texture" id=53]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-177.jpg" type="Texture" id=54]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-191.jpg" type="Texture" id=55]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-147.jpg" type="Texture" id=56]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-103.jpg" type="Texture" id=57]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-056.jpg" type="Texture" id=58]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-044.jpg" type="Texture" id=59]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-174.jpg" type="Texture" id=60]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-192.jpg" type="Texture" id=61]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-045.jpg" type="Texture" id=62]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-072.jpg" type="Texture" id=63]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-071.jpg" type="Texture" id=64]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-105.jpg" type="Texture" id=65]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-084.jpg" type="Texture" id=66]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-099.jpg" type="Texture" id=67]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-041.jpg" type="Texture" id=68]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-058.jpg" type="Texture" id=69]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-069.jpg" type="Texture" id=70]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-185.jpg" type="Texture" id=71]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-170.jpg" type="Texture" id=72]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-156.jpg" type="Texture" id=73]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-166.jpg" type="Texture" id=74]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-172.jpg" type="Texture" id=75]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-173.jpg" type="Texture" id=76]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-135.jpg" type="Texture" id=77]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-001.jpg" type="Texture" id=78]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-137.jpg" type="Texture" id=79]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-120.jpg" type="Texture" id=80]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-118.jpg" type="Texture" id=81]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-115.jpg" type="Texture" id=82]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-114.jpg" type="Texture" id=83]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-111.jpg" type="Texture" id=84]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-126.jpg" type="Texture" id=85]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-029.jpg" type="Texture" id=86]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-142.jpg" type="Texture" id=87]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-116.jpg" type="Texture" id=88]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-119.jpg" type="Texture" id=89]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-127.jpg" type="Texture" id=90]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-112.jpg" type="Texture" id=91]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-122.jpg" type="Texture" id=92]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-019.jpg" type="Texture" id=93]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-131.jpg" type="Texture" id=94]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-130.jpg" type="Texture" id=95]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-013.jpg" type="Texture" id=96]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-018.jpg" type="Texture" id=97]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-123.jpg" type="Texture" id=98]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-140.jpg" type="Texture" id=99]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-110.jpg" type="Texture" id=100]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-125.jpg" type="Texture" id=101]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-022.jpg" type="Texture" id=102]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-006.jpg" type="Texture" id=103]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-129.jpg" type="Texture" id=104]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-113.jpg" type="Texture" id=105]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-138.jpg" type="Texture" id=106]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-003.jpg" type="Texture" id=107]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-014.jpg" type="Texture" id=108]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-143.jpg" type="Texture" id=109]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-136.jpg" type="Texture" id=110]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-132.jpg" type="Texture" id=111]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-139.jpg" type="Texture" id=112]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-020.jpg" type="Texture" id=113]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-030.jpg" type="Texture" id=114]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-008.jpg" type="Texture" id=115]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-133.jpg" type="Texture" id=116]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-010.jpg" type="Texture" id=117]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-124.jpg" type="Texture" id=118]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-002.jpg" type="Texture" id=119]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-134.jpg" type="Texture" id=120]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-012.jpg" type="Texture" id=121]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-128.jpg" type="Texture" id=122]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-117.jpg" type="Texture" id=123]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-034.jpg" type="Texture" id=124]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-141.jpg" type="Texture" id=125]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-121.jpg" type="Texture" id=126]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-027.jpg" type="Texture" id=127]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-025.jpg" type="Texture" id=128]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-021.jpg" type="Texture" id=129]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-011.jpg" type="Texture" id=130]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-028.jpg" type="Texture" id=131]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-007.jpg" type="Texture" id=132]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-026.jpg" type="Texture" id=133]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-005.jpg" type="Texture" id=134]
+[ext_resource path="res://FilmGrainCamera.gd" type="Script" id=135]
+[ext_resource path="res://CircleTransition.tres" type="Shader" id=136]
+[ext_resource path="res://BlurShader.tres" type="Shader" id=137]
+[ext_resource path="res://ColorBleedShader.tres" type="Shader" id=138]
+[ext_resource path="res://Sound/filmgrainnoise.ogg" type="AudioStream" id=139]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-098.jpg" type="Texture" id=141]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-038.jpg" type="Texture" id=142]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-015.jpg" type="Texture" id=143]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-095.jpg" type="Texture" id=144]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-102.jpg" type="Texture" id=145]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-024.jpg" type="Texture" id=146]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-031.jpg" type="Texture" id=147]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-088.jpg" type="Texture" id=148]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-093.jpg" type="Texture" id=149]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-079.jpg" type="Texture" id=150]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-107.jpg" type="Texture" id=151]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-091.jpg" type="Texture" id=152]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-096.jpg" type="Texture" id=153]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-076.jpg" type="Texture" id=154]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-090.jpg" type="Texture" id=155]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-101.jpg" type="Texture" id=156]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-023.jpg" type="Texture" id=157]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-081.jpg" type="Texture" id=158]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-104.jpg" type="Texture" id=159]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-078.jpg" type="Texture" id=160]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-089.jpg" type="Texture" id=161]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-086.jpg" type="Texture" id=162]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-083.jpg" type="Texture" id=163]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-100.jpg" type="Texture" id=164]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-085.jpg" type="Texture" id=165]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-016.jpg" type="Texture" id=166]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-080.jpg" type="Texture" id=167]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-009.jpg" type="Texture" id=168]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-039.jpg" type="Texture" id=169]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-106.jpg" type="Texture" id=170]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-108.jpg" type="Texture" id=171]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-109.jpg" type="Texture" id=172]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-094.jpg" type="Texture" id=173]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-097.jpg" type="Texture" id=174]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-092.jpg" type="Texture" id=175]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-197.jpg" type="Texture" id=176]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-169.jpg" type="Texture" id=177]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-171.jpg" type="Texture" id=178]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-187.jpg" type="Texture" id=179]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-195.jpg" type="Texture" id=180]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-148.jpg" type="Texture" id=181]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-182.jpg" type="Texture" id=182]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-196.jpg" type="Texture" id=183]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-167.jpg" type="Texture" id=184]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-176.jpg" type="Texture" id=185]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-190.jpg" type="Texture" id=186]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-157.jpg" type="Texture" id=187]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-144.jpg" type="Texture" id=188]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-194.jpg" type="Texture" id=189]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-160.jpg" type="Texture" id=190]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-145.jpg" type="Texture" id=191]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-200.jpg" type="Texture" id=192]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-150.jpg" type="Texture" id=193]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-153.jpg" type="Texture" id=194]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-178.jpg" type="Texture" id=195]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-180.jpg" type="Texture" id=196]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-186.jpg" type="Texture" id=197]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-181.jpg" type="Texture" id=198]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-184.jpg" type="Texture" id=199]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-149.jpg" type="Texture" id=200]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-159.jpg" type="Texture" id=201]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-193.jpg" type="Texture" id=202]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-168.jpg" type="Texture" id=203]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-189.jpg" type="Texture" id=204]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-155.jpg" type="Texture" id=205]
+[ext_resource path="res://Animations/Film Grain Frames/ezgif-frame-152.jpg" type="Texture" id=206]
+
+[sub_resource type="CanvasItemMaterial" id=3]
+light_mode = 1
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 78 ), ExtResource( 119 ), ExtResource( 107 ), ExtResource( 46 ), ExtResource( 134 ), ExtResource( 103 ), ExtResource( 132 ), ExtResource( 115 ), ExtResource( 168 ), ExtResource( 117 ), ExtResource( 130 ), ExtResource( 121 ), ExtResource( 96 ), ExtResource( 108 ), ExtResource( 143 ), ExtResource( 166 ), ExtResource( 2 ), ExtResource( 97 ), ExtResource( 93 ), ExtResource( 113 ), ExtResource( 129 ), ExtResource( 102 ), ExtResource( 157 ), ExtResource( 146 ), ExtResource( 128 ), ExtResource( 133 ), ExtResource( 127 ), ExtResource( 131 ), ExtResource( 86 ), ExtResource( 114 ), ExtResource( 147 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 124 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 1 ), ExtResource( 142 ), ExtResource( 169 ), ExtResource( 40 ), ExtResource( 68 ), ExtResource( 45 ), ExtResource( 39 ), ExtResource( 59 ), ExtResource( 62 ), ExtResource( 8 ), ExtResource( 23 ), ExtResource( 12 ), ExtResource( 24 ), ExtResource( 11 ), ExtResource( 27 ), ExtResource( 29 ), ExtResource( 28 ), ExtResource( 13 ), ExtResource( 44 ), ExtResource( 58 ), ExtResource( 47 ), ExtResource( 69 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 41 ), ExtResource( 38 ), ExtResource( 17 ), ExtResource( 33 ), ExtResource( 26 ), ExtResource( 37 ), ExtResource( 42 ), ExtResource( 9 ), ExtResource( 70 ), ExtResource( 49 ), ExtResource( 64 ), ExtResource( 63 ), ExtResource( 36 ), ExtResource( 7 ), ExtResource( 30 ), ExtResource( 154 ), ExtResource( 35 ), ExtResource( 160 ), ExtResource( 150 ), ExtResource( 167 ), ExtResource( 158 ), ExtResource( 25 ), ExtResource( 163 ), ExtResource( 66 ), ExtResource( 165 ), ExtResource( 162 ), ExtResource( 43 ), ExtResource( 148 ), ExtResource( 161 ), ExtResource( 155 ), ExtResource( 152 ), ExtResource( 175 ), ExtResource( 149 ), ExtResource( 173 ), ExtResource( 144 ), ExtResource( 153 ), ExtResource( 174 ), ExtResource( 141 ), ExtResource( 67 ), ExtResource( 164 ), ExtResource( 156 ), ExtResource( 145 ), ExtResource( 57 ), ExtResource( 159 ), ExtResource( 65 ), ExtResource( 170 ), ExtResource( 151 ), ExtResource( 171 ), ExtResource( 172 ), ExtResource( 100 ), ExtResource( 84 ), ExtResource( 91 ), ExtResource( 105 ), ExtResource( 83 ), ExtResource( 82 ), ExtResource( 88 ), ExtResource( 123 ), ExtResource( 81 ), ExtResource( 89 ), ExtResource( 80 ), ExtResource( 126 ), ExtResource( 92 ), ExtResource( 98 ), ExtResource( 118 ), ExtResource( 101 ), ExtResource( 85 ), ExtResource( 90 ), ExtResource( 122 ), ExtResource( 104 ), ExtResource( 95 ), ExtResource( 94 ), ExtResource( 111 ), ExtResource( 116 ), ExtResource( 120 ), ExtResource( 77 ), ExtResource( 110 ), ExtResource( 79 ), ExtResource( 106 ), ExtResource( 112 ), ExtResource( 99 ), ExtResource( 125 ), ExtResource( 87 ), ExtResource( 109 ), ExtResource( 188 ), ExtResource( 191 ), ExtResource( 15 ), ExtResource( 56 ), ExtResource( 181 ), ExtResource( 200 ), ExtResource( 193 ), ExtResource( 18 ), ExtResource( 206 ), ExtResource( 194 ), ExtResource( 52 ), ExtResource( 205 ), ExtResource( 73 ), ExtResource( 187 ), ExtResource( 22 ), ExtResource( 201 ), ExtResource( 190 ), ExtResource( 31 ), ExtResource( 51 ), ExtResource( 53 ), ExtResource( 50 ), ExtResource( 32 ), ExtResource( 74 ), ExtResource( 184 ), ExtResource( 203 ), ExtResource( 177 ), ExtResource( 72 ), ExtResource( 178 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 60 ), ExtResource( 21 ), ExtResource( 185 ), ExtResource( 54 ), ExtResource( 195 ), ExtResource( 34 ), ExtResource( 196 ), ExtResource( 198 ), ExtResource( 182 ), ExtResource( 48 ), ExtResource( 199 ), ExtResource( 71 ), ExtResource( 197 ), ExtResource( 179 ), ExtResource( 16 ), ExtResource( 204 ), ExtResource( 186 ), ExtResource( 55 ), ExtResource( 61 ), ExtResource( 202 ), ExtResource( 189 ), ExtResource( 180 ), ExtResource( 183 ), ExtResource( 176 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 192 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 137 )
+shader_param/blur_amount = 0.4
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 138 )
+shader_param/r_displacement = Vector2( 0.3, 0.3 )
+shader_param/g_displacement = Vector2( 0, 0 )
+shader_param/b_displacement = Vector2( -0.3, 0.3 )
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = ExtResource( 136 )
+shader_param/circle_size = 1.05
+shader_param/screen_width = 1920.0
+shader_param/screen_height = 1080.0
+
+[node name="Camera2D" type="Camera2D"]
+z_as_relative = false
+current = true
+script = ExtResource( 135 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 139 )
+volume_db = -12.0
+autoplay = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 1, 1, 0.0784314 )
+self_modulate = Color( 0.737255, 0.737255, 0.737255, 1 )
+material = SubResource( 3 )
+position = Vector2( 0, -3 )
+z_index = 1000
+z_as_relative = false
+frames = SubResource( 4 )
+frame = 86
+playing = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -801.0
+margin_top = -519.0
+margin_right = -21.0
+margin_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_min_size = Vector2( 2700, 1700 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="CanvasLayer"]
+position = Vector2( -838, -550 )
+copy_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer"]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CircleWipe" type="ColorRect" parent="CanvasLayer"]
+material = SubResource( 10 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

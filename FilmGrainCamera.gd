@@ -6,7 +6,7 @@ var camera_wave_t = 0
 var bob_amount = 0
 
 var do_circle_wipe = false
-var circle_size = 1.05
+var circle_size = 0
 
 
 func _ready():
@@ -67,8 +67,10 @@ func choose_randomly(list_of_entries):
 func _on_AnimatedSprite_frame_changed():
 	get_node("CanvasLayer/ColorRect").material.set_shader_param("blur_amount", blur_amount)
 	if do_circle_wipe:
-		get_node("CanvasLayer/CircleWipe").material.set_shader_param("circle_size", circle_size)
 		circle_size = max(0, circle_size-0.04)
+	else:
+		circle_size = clamp(circle_size + 0.04, 0, 1.05)
+	get_node("CanvasLayer/CircleWipe").material.set_shader_param("circle_size", circle_size)
 
 func _on_Timer_timeout():
 	do_blur = true
@@ -81,4 +83,8 @@ func circle_wipe():
 
 
 func _on_HoleR_do_camera_wipe():
+	circle_wipe()
+
+
+func _on_HoleL_do_camera_wipe():
 	circle_wipe()

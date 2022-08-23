@@ -27,7 +27,7 @@ shape = SubResource( 2 )
 position = Vector2( 1.97152, 7.88608 )
 frames = ExtResource( 2 )
 animation = "Idle"
-frame = 9
+frame = 16
 playing = true
 offset = Vector2( -7.88608, -240.526 )
 
