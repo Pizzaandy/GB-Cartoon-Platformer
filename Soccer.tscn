@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://CameraSetup.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Background/start_room_background.png" type="Texture" id=205]
@@ -13,10 +13,7 @@
 extents = Vector2( 29, 555.5 )
 
 [sub_resource type="RectangleShape2D" id=12]
-extents = Vector2( 86.5, 38 )
-
-[sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 86.5, 38 )
+extents = Vector2( 86.5, 22.5 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 1148.5, 54 )
@@ -46,12 +43,12 @@ shape = SubResource( 5 )
 [node name="GoalRoofs" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="GoalRoofs"]
-position = Vector2( -829.5, 37 )
+position = Vector2( -829.5, -1.5 )
 shape = SubResource( 12 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="GoalRoofs"]
-position = Vector2( 829.5, 37 )
-shape = SubResource( 13 )
+position = Vector2( 829.5, -1.5 )
+shape = SubResource( 12 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( -45, 20 )
@@ -65,6 +62,7 @@ shape = SubResource( 6 )
 modulate = Color( 1, 1, 1, 0.541176 )
 position = Vector2( 0, -250 )
 frames = SubResource( 7 )
+frame = 1
 playing = true
 __meta__ = {
 "_editor_description_": ""
