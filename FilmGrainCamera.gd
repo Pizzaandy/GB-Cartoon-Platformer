@@ -65,7 +65,7 @@ func choose_randomly(list_of_entries):
 
 
 func _on_AnimatedSprite_frame_changed():
-	get_node("CanvasLayer/ColorRect").material.set_shader_param("blur_amount", blur_amount)
+	get_node("CanvasLayer/BlurPass").material.set_shader_param("blur_amount", blur_amount)
 	if do_circle_wipe:
 		circle_size = max(0, circle_size-0.04)
 	else:
