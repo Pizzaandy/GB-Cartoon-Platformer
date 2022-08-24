@@ -62,14 +62,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ ExtResource( 221 ), ExtResource( 222 ), ExtResource( 226 ), ExtResource( 218 ), ExtResource( 223 ) ],
-"loop": false,
-"name": "Close",
-"speed": 24.0
-}, {
 "frames": [ ExtResource( 212 ), ExtResource( 211 ), ExtResource( 210 ) ],
 "loop": true,
 "name": "Idle",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 221 ), ExtResource( 222 ), ExtResource( 226 ), ExtResource( 218 ), ExtResource( 223 ) ],
+"loop": false,
+"name": "Close",
 "speed": 24.0
 }, {
 "frames": [ ExtResource( 224 ), ExtResource( 225 ), ExtResource( 227 ), ExtResource( 228 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 213 ), ExtResource( 215 ), ExtResource( 214 ), ExtResource( 216 ) ],
@@ -175,7 +175,7 @@ air_friction = 2000
 [node name="GuideNumbers" type="AnimatedSprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0.427451 )
 frames = SubResource( 11 )
-frame = 7
+frame = 4
 playing = true
 
 [connection signal="do_camera_wipe" from="HoleR" to="Camera2D" method="_on_HoleR_do_camera_wipe"]

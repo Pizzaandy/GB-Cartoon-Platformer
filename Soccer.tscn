@@ -41,6 +41,7 @@ position = Vector2( -898, -21 )
 shape = SubResource( 5 )
 
 [node name="GoalRoofs" type="StaticBody2D" parent="."]
+position = Vector2( 0, -80 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="GoalRoofs"]
 position = Vector2( -829.5, -1.5 )
@@ -62,7 +63,6 @@ shape = SubResource( 6 )
 modulate = Color( 1, 1, 1, 0.541176 )
 position = Vector2( 0, -250 )
 frames = SubResource( 7 )
-frame = 1
 playing = true
 __meta__ = {
 "_editor_description_": ""
@@ -81,21 +81,28 @@ air_acceleration = 6000
 air_friction = 2000
 
 [node name="GoalRFront" type="Sprite" parent="."]
+modulate = Color( 0.580392, 0.87451, 0.87451, 1 )
+position = Vector2( 0, -100 )
+scale = Vector2( 1, 1.2 )
 z_index = 10
 texture = ExtResource( 210 )
 
-[node name="GoalRBack" type="Sprite" parent="."]
+[node name="GoalRBack" type="Sprite" parent="GoalRFront"]
+modulate = Color( 0.580392, 0.87451, 0.87451, 1 )
 z_index = -10
+z_as_relative = false
 texture = ExtResource( 211 )
 
 [node name="GoalLFront" type="Sprite" parent="."]
-scale = Vector2( -1, 1 )
+modulate = Color( 0.988235, 0.8, 0.956863, 1 )
+position = Vector2( 0, -100 )
+scale = Vector2( -1, 1.2 )
 z_index = 10
 texture = ExtResource( 210 )
 
-[node name="GoalLBack" type="Sprite" parent="."]
-scale = Vector2( -1, 1 )
+[node name="GoalLBack" type="Sprite" parent="GoalLFront"]
 z_index = -10
+z_as_relative = false
 texture = ExtResource( 211 )
 
 [node name="StartRoomBackground" type="Sprite" parent="."]

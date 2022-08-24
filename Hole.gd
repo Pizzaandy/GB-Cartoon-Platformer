@@ -21,18 +21,18 @@ func _physics_process(_delta):
 	activation_t = max(activation_t - 1, -1)
 	if activated:
 		eat_t += 1
-		if eat_t == 33:
+		if eat_t == 33+20:
 			animation = "Close"
-		if eat_t == 45:
+		if eat_t == 45+20:
 			for player in overlapping:
 				player.visible = false
-		if eat_t == 70:
+		if eat_t == 80+20:
 			animation = "Disappear"
-		if eat_t == 100:
+		if eat_t == 110+20:
 			animation = "Idle"
-		if eat_t == 110:
+		if eat_t == 120+20:
 			emit_signal("do_camera_wipe")
-		if eat_t == 210:
+		if eat_t == 220+20:
 			get_tree().change_scene(target_scene)
 	
 	if activation_t == 0:
