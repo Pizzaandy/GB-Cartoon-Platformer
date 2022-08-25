@@ -4,9 +4,12 @@ extends KinematicBody2D
 var intro_state_idx = 0
 var timer = 0
 var target_anim = "Idle"
+var fade_in_shadow = false
+var shadow_alpha = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite.animation = "Idle"
+	$ShadowSprite.modulate = Color(1, 1, 1, shadow_alpha)
 
 
 func _physics_process(delta):
@@ -15,14 +18,20 @@ func _physics_process(delta):
 		var _collision = move_and_collide(Vector2(0, delta * 200))
 		if is_instance_valid(_collision):
 			intro_state_idx += 1
-			timer = 120
+			timer = 80
 	elif intro_state_idx == 1:
 		target_anim = "Land"
+		fade_in_shadow = true
 		if timer == 0:
 			intro_state_idx += 1
+			timer = 30
 	elif intro_state_idx == 2:
-		target_anim = "AlienIntro"
+		target_anim = "AlienIntroKick"
+		if timer == 0:
+			intro_state_idx += 1
 	elif intro_state_idx == 3:
+		target_anim = "AlienIntro"
+	elif intro_state_idx == 4:
 		target_anim = "AlienIdle"
 		
 
@@ -30,12 +39,16 @@ func _on_AnimatedSprite_frame_changed():
 	var current_anim = $AnimatedSprite.animation
 	var frame = $AnimatedSprite.frame
 	
+	if fade_in_shadow:
+		shadow_alpha = min(shadow_alpha + 0.05, 0.6)
+	$ShadowSprite.modulate = Color(1, 1, 1, shadow_alpha)
+	
 	if target_anim == "Land":
 		if frame == 0:
 			current_anim = "Land"
 	elif target_anim == "AlienIntro":
 		current_anim = target_anim
-		if frame == 45:
+		if frame == 41:
 			intro_state_idx += 1
 	else:
 		current_anim = target_anim

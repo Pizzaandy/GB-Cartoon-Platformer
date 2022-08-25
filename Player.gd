@@ -12,16 +12,17 @@ var ground_smoke_scene = preload("res://Scenes/GroundSmoke.tscn")
 var land_poof_scene = preload("res://Scenes/LandPoof.tscn")
 
 # walk properties
-export var gravity = 2000
-export var jump_speed = 5000
 
-export var walk_speed = 10
-export var ground_deceleration = 30000
-export var ground_acceleration = 10000
-export var ground_friction = 15000
-export var air_deceleration = 50
-export var air_acceleration = 30
-export var air_friction = 8
+export var gravity = 6000
+export var jump_speed = 1900
+
+export var walk_speed = 1000
+export var ground_deceleration = 9500
+export var ground_acceleration = 7000
+export var ground_friction = 6000
+export var air_deceleration = 7000
+export var air_acceleration = 6000
+export var air_friction = 2000
 export var min_cancelable_jump_scalar = 0.1
 
 const JUMP_BUFFER_FRAMES = 5
@@ -43,6 +44,7 @@ var x_stretch = 1
 var y_stretch = 1
 var sprite_height = 540
 var frame_updated = false
+var shadow_scale = 1
 
 
 func _ready():
@@ -263,6 +265,15 @@ func _physics_process(delta):
 	anim_finished = false
 	frame_updated = false
 	
+	if $GroundCast.is_colliding():
+		var ground_pos = $GroundCast.get_collision_point()
+		var height_diff = ground_pos.y - position.y
+		$ShadowSprite.position = Vector2(0, 2*height_diff)
+		shadow_scale = (700 - abs(height_diff)) / 700
+	else:
+		shadow_scale = 0
+		$ShadowSprite.scale = Vector2(0, 0)
+	
 	if frozen:
 		current_anim = "Idle"
 	
@@ -307,6 +318,8 @@ func _on_AnimatedSprite_frame_changed():
 		print(velocity.x)
 		if $AnimatedSprite.frame == 3 or $AnimatedSprite.frame == 9:
 			instance_create(ground_smoke_scene, position)
+			
+	$ShadowSprite.scale = Vector2(shadow_scale, 1.7*shadow_scale)
 			
 
 func instance_create(scene, pos):

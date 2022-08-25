@@ -9,7 +9,6 @@
 [ext_resource path="res://Background/soccer_goal_front.png" type="Texture" id=210]
 [ext_resource path="res://Background/soccer_goal_back.png" type="Texture" id=211]
 
-
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 29, 555.5 )
 
@@ -32,6 +31,7 @@ animations = [ {
 [node name="Camera2D" parent="." instance=ExtResource( 1 )]
 
 [node name="Wall" type="StaticBody2D" parent="."]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 position = Vector2( 898, -3 )
@@ -43,6 +43,7 @@ shape = SubResource( 5 )
 
 [node name="GoalRoofs" type="StaticBody2D" parent="."]
 position = Vector2( 0, -80 )
+collision_mask = 3
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="GoalRoofs"]
 position = Vector2( -829.5, -1.5 )
@@ -57,13 +58,14 @@ position = Vector2( -45, 20 )
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2( 130, 526 )
+position = Vector2( 130, 510 )
 shape = SubResource( 6 )
 
 [node name="Logo" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0.541176 )
 position = Vector2( 0, -250 )
 frames = SubResource( 7 )
+frame = 2
 playing = true
 __meta__ = {
 "_editor_description_": ""
@@ -71,15 +73,6 @@ __meta__ = {
 
 [node name="PlayerBody" parent="." instance=ExtResource( 206 )]
 position = Vector2( -545, 425 )
-collision_layer = 65
-gravity = 6000
-jump_speed = 1900
-ground_deceleration = 9500
-ground_acceleration = 7000
-ground_friction = 6000
-air_deceleration = 7000
-air_acceleration = 6000
-air_friction = 2000
 
 [node name="GoalRFront" type="Sprite" parent="."]
 modulate = Color( 0.580392, 0.87451, 0.87451, 1 )

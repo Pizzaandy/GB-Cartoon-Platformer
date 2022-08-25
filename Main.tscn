@@ -98,24 +98,16 @@ shape = SubResource( 1 )
 
 [node name="AlienBody" parent="." instance=ExtResource( 204 )]
 position = Vector2( 700, -713 )
-collision_layer = 2
-collision_mask = 2
 
 [node name="PlayerBody" parent="." instance=ExtResource( 1 )]
 position = Vector2( -545, 425 )
-gravity = 6000
-jump_speed = 1900
-ground_deceleration = 9500
-ground_acceleration = 7000
-ground_friction = 6000
-air_deceleration = 7000
-air_acceleration = 6000
-air_friction = 2000
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 209 )
 
 [node name="Wall" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 position = Vector2( 558, -17 )

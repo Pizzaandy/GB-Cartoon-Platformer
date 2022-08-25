@@ -50,7 +50,11 @@ func resize_filmgrain_sprite():
 	var xscale = viewportWidth / 1440
 	var yscale = viewportHeight / 1080
 	
+	var xscale2 = viewportWidth / 1280
+	var yscale2 = viewportHeight / 720
+	
 	get_node("AnimatedSprite").set_scale(Vector2(xscale, yscale))
+	get_node("Sprite").set_scale(Vector2(xscale2, yscale2))
 	#get_node("ColorRect").set_size(Vector2(viewportWidth, viewportHeight))
 
 

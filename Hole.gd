@@ -21,13 +21,17 @@ func _physics_process(_delta):
 	activation_t = max(activation_t - 1, -1)
 	if activated:
 		eat_t += 1
+		if eat_t == 1:
+			$SoundRise.play()
 		if eat_t == 33+20:
 			animation = "Close"
+			$SoundBite.play()
 		if eat_t == 45+20:
 			for player in overlapping:
 				player.visible = false
 		if eat_t == 80+20:
 			animation = "Disappear"
+			$SoundFall.play()
 		if eat_t == 110+20:
 			animation = "Idle"
 		if eat_t == 120+20:

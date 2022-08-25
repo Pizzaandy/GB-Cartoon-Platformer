@@ -1,7 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://AlienShip_SpriteFrames.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Scenes/AlienShip.gd" type="Script" id=2]
+[ext_resource path="res://Animations/G Animations/G_shadow/G_shadow0029.png" type="Texture" id=3]
+[ext_resource path="res://Animations/G Animations/G_shadow/G_shadow0031.png" type="Texture" id=4]
+[ext_resource path="res://Animations/G Animations/G_shadow/G_shadow0028.png" type="Texture" id=5]
+[ext_resource path="res://Animations/G Animations/G_shadow/G_shadow0030.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 119.25, 230.5 )
@@ -9,12 +21,20 @@ extents = Vector2( 119.25, 230.5 )
 [node name="AlienBody" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
+[node name="ShadowSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -23, 190 )
+scale = Vector2( 0.890123, 1.45926 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+offset = Vector2( 8, -235 )
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -5, -51 )
+position = Vector2( -11, -57 )
 scale = Vector2( 0.77, 0.77 )
 frames = ExtResource( 1 )
-animation = "Idle"
-frame = 14
+animation = "AlienIntroKick"
+frame = 4
 playing = true
 flip_h = true
 

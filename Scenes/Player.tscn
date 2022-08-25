@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://G_SpriteFrames.tres" type="SpriteFrames" id=2]
@@ -7,29 +7,51 @@
 [ext_resource path="res://Sound/run_loop.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Sound/kick.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Sound/kick_success.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Animations/G Animations/G_shadow/G_shadow0029.png" type="Texture" id=8]
+[ext_resource path="res://Animations/G Animations/G_shadow/G_shadow0031.png" type="Texture" id=9]
+[ext_resource path="res://Animations/G Animations/G_shadow/G_shadow0028.png" type="Texture" id=10]
+[ext_resource path="res://Animations/G Animations/G_shadow/G_shadow0030.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 140, 215.049 )
 
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 138.006
+height = 59.1457
+
 [node name="PlayerBody" type="KinematicBody2D"]
 scale = Vector2( 0.507223, 0.507223 )
+collision_layer = 66
+collision_mask = 2
 script = ExtResource( 1 )
-gravity = 3000
-jump_speed = 1500
-walk_speed = 1000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2.38419e-07, -214.742 )
-scale = Vector2( 1, 1 )
 shape = SubResource( 2 )
 
+[node name="ShadowSprite" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 1, 1, 0.643137 )
+scale = Vector2( 1, 1.5 )
+frames = SubResource( 4 )
+frame = 3
+playing = true
+offset = Vector2( 0, -232.639 )
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 1.97152, 7.88608 )
+position = Vector2( 2.38419e-07, 5.68434e-14 )
 frames = ExtResource( 2 )
 animation = "Idle"
-frame = 16
+frame = 17
 playing = true
-offset = Vector2( -7.88608, -240.526 )
+offset = Vector2( -5.91456, -232.64 )
 
 [node name="SoundJump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
@@ -55,6 +77,16 @@ mix_target = 2
 stream = ExtResource( 7 )
 volume_db = -7.0
 mix_target = 2
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, -256.297 )
+shape = SubResource( 3 )
+
+[node name="GroundCast" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 0, 2000 )
 
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
