@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://G_SpriteFrames.tres" type="SpriteFrames" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Animations/G Animations/G_shadow/G_shadow0031.png" type="Texture" id=9]
 [ext_resource path="res://Animations/G Animations/G_shadow/G_shadow0028.png" type="Texture" id=10]
 [ext_resource path="res://Animations/G Animations/G_shadow/G_shadow0030.png" type="Texture" id=11]
+[ext_resource path="res://icon.png" type="Texture" id=12]
+[ext_resource path="res://Scenes/Projectile.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 140, 215.049 )
@@ -27,11 +29,12 @@ animations = [ {
 radius = 138.006
 height = 59.1457
 
-[node name="PlayerBody" type="KinematicBody2D"]
+[node name="PlayerBody" type="KinematicBody2D" groups=["player"]]
 scale = Vector2( 0.507223, 0.507223 )
 collision_layer = 66
 collision_mask = 2
 script = ExtResource( 1 )
+projectile = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -2.38419e-07, -214.742 )
@@ -41,7 +44,7 @@ shape = SubResource( 2 )
 modulate = Color( 1, 1, 1, 0.643137 )
 scale = Vector2( 1, 1.5 )
 frames = SubResource( 4 )
-frame = 3
+frame = 1
 playing = true
 offset = Vector2( 0, -232.639 )
 
@@ -49,7 +52,6 @@ offset = Vector2( 0, -232.639 )
 position = Vector2( 2.38419e-07, 5.68434e-14 )
 frames = ExtResource( 2 )
 animation = "Idle"
-frame = 17
 playing = true
 offset = Vector2( -5.91456, -232.64 )
 
@@ -88,5 +90,19 @@ shape = SubResource( 3 )
 enabled = true
 cast_to = Vector2( 0, 2000 )
 
+[node name="ShootCenter" type="Position2D" parent="."]
+position = Vector2( 0, -214.896 )
+
+[node name="Hand" type="Sprite" parent="ShootCenter"]
+position = Vector2( 238.554, -1.52588e-05 )
+texture = ExtResource( 12 )
+
+[node name="BulletSpawnPosition" type="Position2D" parent="ShootCenter"]
+position = Vector2( 325.301, -1.52588e-05 )
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.2
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]

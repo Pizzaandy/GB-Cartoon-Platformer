@@ -46,6 +46,20 @@ var sprite_height = 540
 var frame_updated = false
 var shadow_scale = 1
 
+# gun
+var gun_enabled = true
+export (PackedScene) var projectile
+var shooting = false
+var shoot_delay_done = true
+
+var max_health = 3
+var health = max_health
+
+func damage(amnt):
+	health -= amnt
+	if health <= 0:
+		pass
+		#TODO PLAYER DEATH
 
 func _ready():
 	pass # Replace with function body.
@@ -54,6 +68,10 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("jump"):
 		jump_buffer_count = JUMP_BUFFER_FRAMES
+	if event.is_action_pressed("shoot") && gun_enabled:
+		shooting = true
+	elif event.is_action_released("shoot") || !gun_enabled:
+		shooting = false
 
 
 func state_ground(dt):
@@ -214,6 +232,37 @@ func _physics_process(delta):
 	var right_input = Input.is_action_pressed("walk_right")
 	move_direction = int(right_input) - int(left_input)
 	
+	if move_direction != 0:
+		$ShootCenter.scale.x = move_direction
+	if shooting:
+		var up_input = Input.is_action_pressed("up")
+		var down_input = Input.is_action_pressed("down")
+		var hand_rotation_deg = 0
+		if move_direction != 0:
+			if up_input:
+				hand_rotation_deg -= 45 * move_direction
+			if down_input:
+				hand_rotation_deg += 45 * move_direction
+		else:
+			if up_input:
+				hand_rotation_deg -= 90 * -sign(float($AnimatedSprite.flip_h) - 0.5)
+			if down_input:
+				hand_rotation_deg += 90 * -sign(float($AnimatedSprite.flip_h) - 0.5)
+		$ShootCenter.rotation_degrees = hand_rotation_deg
+		$ShootCenter.visible = true
+		if shoot_delay_done:
+			var bullet = projectile.instance()
+			get_parent().add_child(bullet)
+			bullet.global_transform = $ShootCenter/BulletSpawnPosition.global_transform
+			bullet.launch($ShootCenter/BulletSpawnPosition.global_position - $ShootCenter.global_position, 2000)
+			shoot_delay_done = false
+			$ShootTimer.start()
+		# just in case
+		elif $ShootTimer.time_left == 0:
+			$ShootTimer.start()
+	else:
+		$ShootCenter.visible = false
+	
 	if state == State.GROUND:
 		state_ground(delta)
 		#velocity = move_and_slide_with_snap(velocity, Vector2(0, 5), Vector2.UP)
@@ -326,3 +375,6 @@ func instance_create(scene, pos):
 	var new_scene = scene.instance()
 	new_scene.position = pos
 	get_parent().add_child(new_scene)
+
+func _on_ShootTimer_timeout():
+	shoot_delay_done = true
