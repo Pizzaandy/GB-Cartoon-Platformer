@@ -221,7 +221,7 @@ func _physics_process(delta):
 	elif state == State.AIR:
 		state_air(delta)
 		#velocity = move_and_slide(velocity, Vector2.UP, true)
-	velocity = move_and_slide_with_snap(velocity, Vector2(0, 3), Vector2.UP, false, 4, PI/4, false)
+	velocity = move_and_slide_with_snap(velocity, Vector2(0, 3), Vector2.UP, false, 4, 0, false)
 	#velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
 	
 	# code for the push collision to still work
@@ -229,8 +229,8 @@ func _physics_process(delta):
 		var collision = get_slide_collision(0)
 		if collision.collider.is_in_group("soccerball"):
 			# we are only colliding with the soccer ball
-			if collision.collider.global_position.y < global_position.y:
-				velocity.y = 0
+			if collision.normal.y > 0:
+				velocity.y = -jump_speed
 		
 
 	for index in get_slide_count():
