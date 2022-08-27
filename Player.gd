@@ -25,6 +25,7 @@ export var air_acceleration = 6000
 export var air_friction = 2000
 export var min_cancelable_jump_scalar = 0.1
 export var collision_push = 100
+export var kick_force = Vector2(3000, 3000)
 
 const JUMP_BUFFER_FRAMES = 5
 const VELOCITY_EPSILON = 0.1
@@ -226,6 +227,14 @@ func kick():
 			velocity.x = -clamp(2.5*abs(velocity.x), 1200, 5000)
 		else:
 			velocity.x = clamp(2.5*abs(velocity.x), 1200, 5000)
+		for body in $KickArea.get_overlapping_bodies():
+			if body.is_in_group("soccerball"):
+				if not $SoundKickSuccess.playing:
+					$SoundKickSuccess.play()
+				if $AnimatedSprite.flip_h:
+					body.apply_central_impulse(-kick_force)
+				else:
+					body.apply_central_impulse(Vector2(kick_force.x, -kick_force.y))
 
 
 func _physics_process(delta):
@@ -396,3 +405,15 @@ func instance_create(scene, pos):
 
 func _on_ShootTimer_timeout():
 	shoot_delay_done = true
+
+
+func _on_KickArea_body_entered(body):
+	if target_anim_state == "Kick":	
+		if body.is_in_group("soccerball"):
+			if not $SoundKickSuccess.playing:
+				$SoundKickSuccess.play()
+			if $AnimatedSprite.flip_h:
+				body.apply_central_impulse(Vector2(-5000, -5000))
+			else:
+				body.apply_central_impulse(Vector2(5000, -5000))
+		

@@ -78,7 +78,7 @@ shape = SubResource( 6 )
 modulate = Color( 1, 1, 1, 0.541176 )
 position = Vector2( 0, -250 )
 frames = SubResource( 7 )
-frame = 1
+frame = 2
 playing = true
 __meta__ = {
 "_editor_description_": ""
