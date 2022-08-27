@@ -71,14 +71,14 @@ animations = [ {
 "name": "Close",
 "speed": 24.0
 }, {
-"frames": [ ExtResource( 224 ), ExtResource( 225 ), ExtResource( 227 ), ExtResource( 228 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 213 ), ExtResource( 215 ), ExtResource( 214 ), ExtResource( 216 ) ],
-"loop": false,
-"name": "Disappear",
-"speed": 24.0
-}, {
 "frames": [ ExtResource( 212 ), ExtResource( 211 ), ExtResource( 210 ) ],
 "loop": true,
 "name": "Idle",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 224 ), ExtResource( 225 ), ExtResource( 227 ), ExtResource( 228 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 213 ), ExtResource( 215 ), ExtResource( 214 ), ExtResource( 216 ) ],
+"loop": false,
+"name": "Disappear",
 "speed": 24.0
 }, {
 "frames": [ ExtResource( 233 ), ExtResource( 220 ), ExtResource( 217 ), ExtResource( 219 ), ExtResource( 235 ), ExtResource( 232 ), ExtResource( 234 ) ],

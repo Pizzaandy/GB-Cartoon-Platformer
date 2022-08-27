@@ -9,6 +9,9 @@ shader_param/Shift_Hue = 0.4
 
 [node name="PlayerBody" instance=ExtResource( 1 )]
 
+[node name="ShadowSprite" parent="." index="1"]
+frame = 1
+
 [node name="AnimatedSprite" parent="." index="2"]
 material = SubResource( 1 )
-frame = 15
+frame = 14
