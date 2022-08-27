@@ -1,8 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Background/1_foreground.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/CameraSetup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Main.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/MiniUfo.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/BigAlienBomb.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/AlienShip.tscn" type="PackedScene" id=204]
 [ext_resource path="res://Background/2_midground.png" type="Texture" id=205]
 [ext_resource path="res://Sound/Music/moonglow_cab_calloway.mp3" type="AudioStream" id=209]
@@ -19,6 +22,9 @@ extents = Vector2( 1148.5, 54 )
 extents = Vector2( 48.5, 555.5 )
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 4 )
+miniUFO = ExtResource( 5 )
+bigBomb = ExtResource( 6 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 3 )]
 
@@ -90,14 +96,14 @@ flip_h = true
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( -45, 20 )
-collision_mask = 3
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2( 21, 490 )
 shape = SubResource( 1 )
 
 [node name="AlienBody" parent="." instance=ExtResource( 204 )]
-position = Vector2( 700, -713 )
+position = Vector2( 741, 245 )
 
 [node name="PlayerBody" parent="." instance=ExtResource( 1 )]
 position = Vector2( -545, 425 )
@@ -108,6 +114,9 @@ stream = ExtResource( 209 )
 [node name="Wall" type="StaticBody2D" parent="."]
 collision_layer = 2
 collision_mask = 2
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
 position = Vector2( 558, -17 )
@@ -116,3 +125,47 @@ shape = SubResource( 7 )
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
 position = Vector2( -945.5, -24 )
 shape = SubResource( 7 )
+
+[node name="T1" type="Node2D" parent="."]
+position = Vector2( 0, -56 )
+
+[node name="UfoLeft" type="Position2D" parent="T1"]
+position = Vector2( -846, -360 )
+
+[node name="UfoRight" type="Position2D" parent="T1"]
+position = Vector2( 442, -360 )
+
+[node name="T2" type="Node2D" parent="."]
+position = Vector2( 0, 64 )
+
+[node name="UfoLeft" type="Position2D" parent="T2"]
+position = Vector2( -846, -360 )
+
+[node name="UfoRight" type="Position2D" parent="T2"]
+position = Vector2( 442, -360 )
+
+[node name="T3" type="Node2D" parent="."]
+position = Vector2( 0, 170 )
+
+[node name="UfoLeft" type="Position2D" parent="T3"]
+position = Vector2( -846, -360 )
+
+[node name="UfoRight" type="Position2D" parent="T3"]
+position = Vector2( 442, -360 )
+
+[node name="SpawnUFOTimer" type="Timer" parent="."]
+wait_time = 12.0
+
+[node name="BombSpawnPosition" type="Position2D" parent="."]
+position = Vector2( 547, 157 )
+
+[node name="BigBombTimer" type="Timer" parent="."]
+wait_time = 12.0
+autostart = true
+
+[node name="BombBarrage" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="SpawnUFOTimer" to="." method="_on_SpawnUFOTimer_timeout"]
+[connection signal="timeout" from="BigBombTimer" to="." method="_on_BigBombTimer_timeout"]
+[connection signal="timeout" from="BombBarrage" to="." method="_on_BombBarrage_timeout"]

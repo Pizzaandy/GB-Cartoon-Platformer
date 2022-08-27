@@ -1,11 +1,10 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Scenes/CameraSetup.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sound/slidewhistle_rise.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Sound/bite.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Sound/slidewhistle_fall.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Sound/Music/moonglow_cab_calloway.mp3" type="AudioStream" id=5]
-[ext_resource path="res://Scenes/Player2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Background/start_room_background.png" type="Texture" id=205]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=206]
 [ext_resource path="res://Animations/LogoAnimated/logo_animated0000.png" type="Texture" id=207]
@@ -77,14 +76,14 @@ animations = [ {
 "name": "Idle",
 "speed": 24.0
 }, {
-"frames": [ ExtResource( 233 ), ExtResource( 220 ), ExtResource( 217 ), ExtResource( 219 ), ExtResource( 235 ), ExtResource( 232 ), ExtResource( 234 ) ],
-"loop": false,
-"name": "Open",
-"speed": 24.0
-}, {
 "frames": [ ExtResource( 224 ), ExtResource( 225 ), ExtResource( 227 ), ExtResource( 228 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 213 ), ExtResource( 215 ), ExtResource( 214 ), ExtResource( 216 ) ],
 "loop": false,
 "name": "Disappear",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 233 ), ExtResource( 220 ), ExtResource( 217 ), ExtResource( 219 ), ExtResource( 235 ), ExtResource( 232 ), ExtResource( 234 ) ],
+"loop": false,
+"name": "Open",
 "speed": 24.0
 } ]
 
@@ -128,7 +127,7 @@ shape = SubResource( 6 )
 
 [node name="Logo" type="AnimatedSprite" parent="."]
 frames = SubResource( 7 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="HoleR" type="AnimatedSprite" parent="."]
@@ -136,6 +135,7 @@ position = Vector2( 0, -33 )
 scale = Vector2( 1.07, 1.07 )
 frames = SubResource( 8 )
 animation = "Idle"
+frame = 2
 playing = true
 script = ExtResource( 231 )
 
@@ -163,6 +163,7 @@ position = Vector2( 0, -33 )
 scale = Vector2( 1.07, 1.07 )
 frames = SubResource( 8 )
 animation = "Idle"
+frame = 2
 playing = true
 flip_h = true
 script = ExtResource( 231 )
@@ -196,17 +197,13 @@ collision_mask = 1
 [node name="GuideNumbers" type="AnimatedSprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0.427451 )
 frames = SubResource( 11 )
-frame = 1
+frame = 11
 playing = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -10.0
 autoplay = true
-
-[node name="PlayerBody2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1, 400 )
-collision_mask = 1
 
 [connection signal="do_camera_wipe" from="HoleR" to="Camera2D" method="_on_HoleR_do_camera_wipe"]
 [connection signal="do_camera_wipe" from="HoleL" to="Camera2D" method="_on_HoleL_do_camera_wipe"]
