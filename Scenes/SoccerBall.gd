@@ -25,7 +25,7 @@ func _physics_process(delta):
 	if colliding.size() >= 1:
 		for collider in colliding:
 			if collider.is_in_group("player"):
-				if collider.position.y - position.y < -25:
+				if collider.position.y - position.y < 10:
 					collider.velocity.y = -0.77*collider.jump_speed
 					collider.jump_ended = true
 					linear_velocity.y = 0.35*max_speed
@@ -45,11 +45,3 @@ func _physics_process(delta):
 				#print("exception removed")
 				ignored_bodies.erase(body)
 				
-	if $GroundCast.is_colliding():
-		var ground_pos = $GroundCast.get_collision_point()
-		var height_diff = ground_pos.y - position.y
-		$ShadowSprite.position = Vector2(0, 2*height_diff)
-		shadow_scale = (800 - abs(height_diff)) / 800
-	else:
-		shadow_scale = 0
-		$ShadowSprite.scale = Vector2(0, 0)
