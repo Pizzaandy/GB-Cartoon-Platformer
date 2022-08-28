@@ -24,18 +24,22 @@ export var air_deceleration = 7000
 export var air_acceleration = 6000
 export var air_friction = 2000
 export var min_cancelable_jump_scalar = 0.1
-export var collision_push = 100
+var collision_push = 100
+var kick_force = Vector2(6000, -600)
 
 const JUMP_BUFFER_FRAMES = 5
 const VELOCITY_EPSILON = 0.1
 
 var jump_buffer_count = 0
 var kicked = false
-var KICKING_FRAMES = 20
+const KICKING_FRAMES = 20
 var kick_frame_count = 0
 var kick_ended = false
+var kick_success = false
 
 var frozen = false
+var ball_overlap_frames = 0
+var ball_overlap_frames_previous = 0
 
 var velocity = Vector2(0, 0)
 var jump_pressed = false
@@ -78,6 +82,7 @@ func _input(event):
 func state_ground(dt):
 	jump_ended = true
 	kick_ended = false
+	kick_success = false
 	kicked = false
 	if not is_on_floor():
 		state = State.AIR
@@ -158,8 +163,13 @@ func state_air(dt):
 	x_stretch = lerp(x_stretch, 1, 0.1)
 	y_stretch = lerp(y_stretch, 1, 0.1)
 	
-	if velocity.y > 10 and target_anim_state != "Kick":
+	if target_anim_state == "Kick":
+		pass
+	elif velocity.y > 10:
 		target_anim_state = "Fall"
+	else:
+		target_anim_state = "Jump"
+	
 	
 	if (
 		jump_ended == false
@@ -226,7 +236,18 @@ func kick():
 			velocity.x = -clamp(2.5*abs(velocity.x), 1200, 5000)
 		else:
 			velocity.x = clamp(2.5*abs(velocity.x), 1200, 5000)
-
+		
+		var bodies = $KickArea.get_overlapping_bodies()
+		for body in bodies:
+			if body.is_in_group("soccerball"):
+				if not kick_success:
+					$SoundKickSuccess.play()
+					kick_success = true
+				
+				if $AnimatedSprite.flip_h:
+					body.linear_velocity = Vector2(-kick_force.x, kick_force.y)
+				else:
+					body.linear_velocity = kick_force
 
 func _physics_process(delta):
 	var left_input = Input.is_action_pressed("walk_left")
@@ -270,25 +291,9 @@ func _physics_process(delta):
 	elif state == State.AIR:
 		state_air(delta)
 		#velocity = move_and_slide(velocity, Vector2.UP, true)
-	velocity = move_and_slide_with_snap(velocity, Vector2(0, 3), Vector2.UP, false, 4, 0, false)
+	velocity = move_and_slide_with_snap(velocity, Vector2(0, 3), Vector2.UP)
 	#velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
 	
-	# code for the push collision to still work
-	if get_slide_count() == 1:
-		var collision = get_slide_collision(0)
-		if collision.collider.is_in_group("soccerball"):
-			# we are only colliding with the soccer ball
-			if collision.normal.y > 0:
-				velocity.y = -jump_speed
-		
-
-	for index in get_slide_count():
-		var collision = get_slide_collision(index)
-		if collision.collider.is_in_group("soccerball"):
-			var collision_force = -collision.normal * collision_push
-			collision.collider.apply_central_impulse(collision_force)
-			velocity -= collision_force
-
 	var current_anim = get_node("AnimatedSprite").animation
 	var target_frame = -1
 	#if get_node("AnimatedSprite").frame == get_node("AnimatedSprite").frames.get_frame_count(current_anim)-1:
@@ -372,8 +377,8 @@ func _physics_process(delta):
 	
 	jump_buffer_count = max(jump_buffer_count - 1, 0)
 	kick_frame_count = max(kick_frame_count - 1, 0)
-
-
+	ball_overlap_frames = max(ball_overlap_frames - 1, 0)
+	
 func _on_AnimatedSprite_animation_finished():
 	anim_finished = true
 
@@ -382,7 +387,7 @@ func _on_AnimatedSprite_frame_changed():
 	#get_node("AnimatedSprite").scale = Vector2(x_stretch, y_stretch)
 	frame_updated = true
 	if $AnimatedSprite.animation == "Run" and abs(velocity.x) > 0.9*walk_speed:
-		print(velocity.x)
+		#print(velocity.x)
 		if $AnimatedSprite.frame == 3 or $AnimatedSprite.frame == 9:
 			instance_create(ground_smoke_scene, position)
 			
@@ -394,5 +399,19 @@ func instance_create(scene, pos):
 	new_scene.position = pos
 	get_parent().add_child(new_scene)
 
+
 func _on_ShootTimer_timeout():
 	shoot_delay_done = true
+
+
+func _on_KickArea_body_entered(body):
+	if kick_frame_count > 0:	
+		if body.is_in_group("soccerball"):
+			if not kick_success:
+				kick_success = true
+				$SoundKickSuccess.play()
+			if $AnimatedSprite.flip_h:
+				body.linear_velocity = Vector2(-kick_force.x, kick_force.y)
+			else:
+				body.linear_velocity = kick_force
+		

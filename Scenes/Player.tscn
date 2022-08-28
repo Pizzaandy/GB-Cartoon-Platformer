@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://G_SpriteFrames.tres" type="SpriteFrames" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Animations/G Animations/G_shadow/G_shadow0030.png" type="Texture" id=11]
 [ext_resource path="res://icon.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/Projectile.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/KickArea.gd" type="Script" id=14]
 
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 141.949
@@ -30,6 +31,10 @@ animations = [ {
 radius = 138.006
 height = 59.1457
 
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 134.741
+height = 183.882
+
 [node name="PlayerBody" type="KinematicBody2D" groups=["player"]]
 scale = Vector2( 0.507223, 0.507223 )
 collision_layer = 66
@@ -45,15 +50,15 @@ shape = SubResource( 5 )
 modulate = Color( 1, 1, 1, 0.643137 )
 scale = Vector2( 1, 1.5 )
 frames = SubResource( 4 )
-frame = 2
+frame = 1
 playing = true
 offset = Vector2( 0, -232.639 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 2.38419e-07, 5.68434e-14 )
 frames = ExtResource( 2 )
-animation = "Idle"
-frame = 8
+animation = "Kick"
+frame = 4
 playing = true
 offset = Vector2( -5.91456, -232.64 )
 
@@ -105,6 +110,18 @@ position = Vector2( 325.301, -1.52588e-05 )
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 0.2
 
+[node name="KickArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KickArea"]
+position = Vector2( 163.636, -169.551 )
+rotation = 1.80118
+scale = Vector2( 0.999998, 0.999998 )
+shape = SubResource( 6 )
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite" to="." method="_on_AnimatedSprite_frame_changed"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
+[connection signal="body_entered" from="KickArea" to="." method="_on_KickArea_body_entered"]
