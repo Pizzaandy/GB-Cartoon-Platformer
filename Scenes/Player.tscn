@@ -32,8 +32,8 @@ radius = 138.006
 height = 59.1457
 
 [sub_resource type="CapsuleShape2D" id=6]
-radius = 134.063
-height = 268.128
+radius = 134.741
+height = 183.882
 
 [node name="PlayerBody" type="KinematicBody2D" groups=["player"]]
 scale = Vector2( 0.507223, 0.507223 )
@@ -50,6 +50,7 @@ shape = SubResource( 5 )
 modulate = Color( 1, 1, 1, 0.643137 )
 scale = Vector2( 1, 1.5 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 offset = Vector2( 0, -232.639 )
 
@@ -115,8 +116,8 @@ collision_mask = 2
 script = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KickArea"]
-position = Vector2( 120.263, -145.892 )
-rotation = 1.5708
+position = Vector2( 163.636, -169.551 )
+rotation = 1.80118
 scale = Vector2( 0.999998, 0.999998 )
 shape = SubResource( 6 )
 

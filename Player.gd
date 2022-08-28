@@ -24,8 +24,8 @@ export var air_deceleration = 7000
 export var air_acceleration = 6000
 export var air_friction = 2000
 export var min_cancelable_jump_scalar = 0.1
-export var collision_push = 100
-export var kick_force = Vector2(6000, 3000)
+var collision_push = 100
+var kick_force = Vector2(6000, -600)
 
 const JUMP_BUFFER_FRAMES = 5
 const VELOCITY_EPSILON = 0.1
@@ -35,6 +35,7 @@ var kicked = false
 const KICKING_FRAMES = 20
 var kick_frame_count = 0
 var kick_ended = false
+var kick_success = false
 
 var frozen = false
 var ball_overlap_frames = 0
@@ -81,6 +82,7 @@ func _input(event):
 func state_ground(dt):
 	jump_ended = true
 	kick_ended = false
+	kick_success = false
 	kicked = false
 	if not is_on_floor():
 		state = State.AIR
@@ -234,6 +236,18 @@ func kick():
 			velocity.x = -clamp(2.5*abs(velocity.x), 1200, 5000)
 		else:
 			velocity.x = clamp(2.5*abs(velocity.x), 1200, 5000)
+		
+		var bodies = $KickArea.get_overlapping_bodies()
+		for body in bodies:
+			if body.is_in_group("soccerball"):
+				if not kick_success:
+					$SoundKickSuccess.play()
+					kick_success = true
+				
+				if $AnimatedSprite.flip_h:
+					body.linear_velocity = Vector2(-kick_force.x, kick_force.y)
+				else:
+					body.linear_velocity = kick_force
 
 func _physics_process(delta):
 	var left_input = Input.is_action_pressed("walk_left")
@@ -393,10 +407,11 @@ func _on_ShootTimer_timeout():
 func _on_KickArea_body_entered(body):
 	if kick_frame_count > 0:	
 		if body.is_in_group("soccerball"):
-			if not $SoundKickSuccess.playing:
+			if not kick_success:
+				kick_success = true
 				$SoundKickSuccess.play()
 			if $AnimatedSprite.flip_h:
-				body.apply_central_impulse(Vector2(-kick_force.x, kick_force.y))
+				body.linear_velocity = Vector2(-kick_force.x, kick_force.y)
 			else:
-				body.apply_central_impulse(kick_force)
+				body.linear_velocity = kick_force
 		
