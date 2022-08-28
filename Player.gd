@@ -9,7 +9,8 @@ var anim_finished = false
 # var a = 2
 # var b = "text"
 var ground_smoke_scene = preload("res://Scenes/GroundSmoke.tscn")
-var land_poof_scene = preload("res://Scenes/LandPoof.tscn")
+var kick_hit_scene = preload("res://Scenes/KickHit.tscn")
+var bounce_poof_scene = preload("res://Scenes/BouncePoof.tscn")
 
 # walk properties
 
@@ -215,8 +216,6 @@ func player_jump(current_velocity):
 func on_land():
 	$SoundLand.pitch_scale = rand_range(0.9, 1.1)
 	$SoundLand.play()
-	#if abs(velocity.y) > 0.01:
-		#instance_create(land_poof_scene, position)
 	if jump_buffer_count > 0:
 		pass
 	if move_direction != 0:
@@ -241,7 +240,9 @@ func kick():
 		for body in bodies:
 			if body.is_in_group("soccerball"):
 				if not kick_success:
+					$SoundKickSuccess.pitch_scale = rand_range(0.9, 1.1)
 					$SoundKickSuccess.play()
+					instance_create(kick_hit_scene, body.global_position)
 					kick_success = true
 				
 				if $AnimatedSprite.flip_h:
@@ -405,11 +406,13 @@ func _on_ShootTimer_timeout():
 
 
 func _on_KickArea_body_entered(body):
-	if kick_frame_count > 0:	
+	if kick_frame_count > 9:	
 		if body.is_in_group("soccerball"):
 			if not kick_success:
 				kick_success = true
+				$SoundKickSuccess.pitch_scale = rand_range(0.9, 1.1)
 				$SoundKickSuccess.play()
+				instance_create(kick_hit_scene, body.global_position)
 			if $AnimatedSprite.flip_h:
 				body.linear_velocity = Vector2(-kick_force.x, kick_force.y)
 			else:

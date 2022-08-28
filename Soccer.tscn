@@ -53,7 +53,7 @@ collision_mask = 3
 physics_material_override = SubResource( 17 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2( 898, -3 )
+position = Vector2( 898, -21 )
 shape = SubResource( 5 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
@@ -75,7 +75,7 @@ position = Vector2( 829.5, -1.5 )
 rotation = -0.174533
 shape = SubResource( 12 )
 
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="." groups=["floor"]]
 position = Vector2( -45, 20 )
 collision_mask = 3
 physics_material_override = SubResource( 14 )
@@ -96,6 +96,7 @@ shape = SubResource( 6 )
 [node name="Logo" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0.541176 )
 position = Vector2( 0, -250 )
+z_index = 30
 frames = SubResource( 7 )
 playing = true
 __meta__ = {

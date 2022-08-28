@@ -403,7 +403,7 @@ position = Vector2( 0, -3 )
 z_index = 1000
 z_as_relative = false
 frames = SubResource( 4 )
-frame = 82
+frame = 129
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -434,7 +434,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="NoisePass" type="ColorRect" parent="CanvasLayer"]
-modulate = Color( 0.756863, 0.756863, 0.756863, 0.215686 )
+modulate = Color( 0.756863, 0.756863, 0.756863, 0.137255 )
 material = SubResource( 12 )
 anchor_right = 1.0
 anchor_bottom = 1.0

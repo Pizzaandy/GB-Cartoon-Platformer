@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=60 format=2]
 
 [ext_resource path="res://Scenes/CameraSetup.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sound/slidewhistle_rise.ogg" type="AudioStream" id=2]
@@ -54,6 +54,9 @@
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 29, 555.5 )
 
+[sub_resource type="PhysicsMaterial" id=14]
+bounce = 0.97
+
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 1148.5, 54 )
 
@@ -67,11 +70,6 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ ExtResource( 221 ), ExtResource( 222 ), ExtResource( 226 ), ExtResource( 218 ), ExtResource( 223 ) ],
-"loop": false,
-"name": "Close",
-"speed": 24.0
-}, {
 "frames": [ ExtResource( 212 ), ExtResource( 211 ), ExtResource( 210 ) ],
 "loop": true,
 "name": "Idle",
@@ -86,6 +84,11 @@ animations = [ {
 "loop": false,
 "name": "Open",
 "speed": 24.0
+}, {
+"frames": [ ExtResource( 221 ), ExtResource( 222 ), ExtResource( 226 ), ExtResource( 218 ), ExtResource( 223 ) ],
+"loop": false,
+"name": "Close",
+"speed": 24.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=9]
@@ -98,6 +101,12 @@ animations = [ {
 "name": "default",
 "speed": 24.0
 } ]
+
+[sub_resource type="PhysicsMaterial" id=12]
+bounce = 0.99
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 1148.5, 54 )
 
 [node name="Start" type="Node2D"]
 script = ExtResource( 6 )
@@ -119,21 +128,25 @@ shape = SubResource( 5 )
 position = Vector2( -898, -21 )
 shape = SubResource( 5 )
 
-[node name="Floor" type="StaticBody2D" parent="."]
+[node name="Floor" type="StaticBody2D" parent="." groups=["floor"]]
 position = Vector2( -45, 20 )
 collision_mask = 3
+physics_material_override = SubResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2( 130, 510 )
 shape = SubResource( 6 )
 
 [node name="Logo" type="AnimatedSprite" parent="."]
+z_index = -30
 frames = SubResource( 7 )
+frame = 1
 playing = true
 
 [node name="HoleR" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -33 )
 scale = Vector2( 1.07, 1.07 )
+z_index = -5
 frames = SubResource( 8 )
 animation = "Idle"
 frame = 1
@@ -162,6 +175,7 @@ pitch_scale = 0.9
 [node name="HoleL" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -33 )
 scale = Vector2( 1.07, 1.07 )
+z_index = -5
 frames = SubResource( 8 )
 animation = "Idle"
 frame = 1
@@ -198,12 +212,21 @@ collision_mask = 1
 [node name="GuideNumbers" type="AnimatedSprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0.427451 )
 frames = SubResource( 11 )
+frame = 7
 playing = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 volume_db = -10.0
-autoplay = true
+
+[node name="Ceiling" type="StaticBody2D" parent="."]
+position = Vector2( -45, 20 )
+collision_mask = 3
+physics_material_override = SubResource( 12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
+position = Vector2( 124, -650 )
+shape = SubResource( 13 )
 
 [connection signal="do_camera_wipe" from="HoleR" to="Camera2D" method="_on_HoleR_do_camera_wipe"]
 [connection signal="do_camera_wipe" from="HoleL" to="Camera2D" method="_on_HoleL_do_camera_wipe"]
