@@ -31,8 +31,9 @@ animations = [ {
 radius = 138.006
 height = 59.1457
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 414.02, 261.966 )
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 134.063
+height = 268.128
 
 [node name="PlayerBody" type="KinematicBody2D" groups=["player"]]
 scale = Vector2( 0.507223, 0.507223 )
@@ -49,15 +50,14 @@ shape = SubResource( 5 )
 modulate = Color( 1, 1, 1, 0.643137 )
 scale = Vector2( 1, 1.5 )
 frames = SubResource( 4 )
-frame = 3
 playing = true
 offset = Vector2( 0, -232.639 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 2.38419e-07, 5.68434e-14 )
 frames = ExtResource( 2 )
-animation = "Idle"
-frame = 1
+animation = "Kick"
+frame = 4
 playing = true
 offset = Vector2( -5.91456, -232.64 )
 
@@ -115,7 +115,8 @@ collision_mask = 2
 script = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KickArea"]
-position = Vector2( 268.127, -215.142 )
+position = Vector2( 120.263, -145.892 )
+rotation = 1.5708
 scale = Vector2( 0.999998, 0.999998 )
 shape = SubResource( 6 )
 

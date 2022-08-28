@@ -71,11 +71,6 @@ animations = [ {
 "name": "Close",
 "speed": 24.0
 }, {
-"frames": [ ExtResource( 212 ), ExtResource( 211 ), ExtResource( 210 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 24.0
-}, {
 "frames": [ ExtResource( 224 ), ExtResource( 225 ), ExtResource( 227 ), ExtResource( 228 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 213 ), ExtResource( 215 ), ExtResource( 214 ), ExtResource( 216 ) ],
 "loop": false,
 "name": "Disappear",
@@ -84,6 +79,11 @@ animations = [ {
 "frames": [ ExtResource( 233 ), ExtResource( 220 ), ExtResource( 217 ), ExtResource( 219 ), ExtResource( 235 ), ExtResource( 232 ), ExtResource( 234 ) ],
 "loop": false,
 "name": "Open",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 212 ), ExtResource( 211 ), ExtResource( 210 ) ],
+"loop": true,
+"name": "Idle",
 "speed": 24.0
 } ]
 
@@ -127,6 +127,7 @@ shape = SubResource( 6 )
 
 [node name="Logo" type="AnimatedSprite" parent="."]
 frames = SubResource( 7 )
+frame = 2
 playing = true
 
 [node name="HoleR" type="AnimatedSprite" parent="."]
@@ -134,7 +135,6 @@ position = Vector2( 0, -33 )
 scale = Vector2( 1.07, 1.07 )
 frames = SubResource( 8 )
 animation = "Idle"
-frame = 1
 playing = true
 script = ExtResource( 231 )
 
@@ -162,7 +162,6 @@ position = Vector2( 0, -33 )
 scale = Vector2( 1.07, 1.07 )
 frames = SubResource( 8 )
 animation = "Idle"
-frame = 1
 playing = true
 flip_h = true
 script = ExtResource( 231 )
@@ -196,7 +195,6 @@ collision_mask = 1
 [node name="GuideNumbers" type="AnimatedSprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0.427451 )
 frames = SubResource( 11 )
-frame = 2
 playing = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
