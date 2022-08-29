@@ -26,7 +26,9 @@ export var air_acceleration = 6000
 export var air_friction = 2000
 export var min_cancelable_jump_scalar = 0.1
 var collision_push = 100
-var kick_force = Vector2(6000, -600)
+
+var kick_force = Vector2(6000, -400)
+var kick_spin = -10
 
 const JUMP_BUFFER_FRAMES = 5
 const VELOCITY_EPSILON = 0.1
@@ -243,12 +245,17 @@ func kick():
 					$SoundKickSuccess.pitch_scale = rand_range(0.9, 1.1)
 					$SoundKickSuccess.play()
 					instance_create(kick_hit_scene, body.global_position)
+					ball_overlap_frames = 15
+					body.add_collision_exception_with(self)
+					body.ignored_bodies.append(self)
 					kick_success = true
 				
 				if $AnimatedSprite.flip_h:
 					body.linear_velocity = Vector2(-kick_force.x, kick_force.y)
+					body.angular_velocity = kick_spin
 				else:
 					body.linear_velocity = kick_force
+					body.angular_velocity = -kick_spin
 
 func _physics_process(delta):
 	var left_input = Input.is_action_pressed("walk_left")
@@ -342,7 +349,7 @@ func _physics_process(delta):
 		var ground_pos = $GroundCast.get_collision_point()
 		var height_diff = ground_pos.y - position.y
 		$ShadowSprite.position = Vector2(0, 2*height_diff)
-		shadow_scale = (700 - abs(height_diff)) / 700
+		shadow_scale = (900 - abs(height_diff)) / 900
 	else:
 		shadow_scale = 0
 		$ShadowSprite.scale = Vector2(0, 0)
@@ -413,8 +420,13 @@ func _on_KickArea_body_entered(body):
 				$SoundKickSuccess.pitch_scale = rand_range(0.9, 1.1)
 				$SoundKickSuccess.play()
 				instance_create(kick_hit_scene, body.global_position)
+				ball_overlap_frames = 10
+				body.ignored_bodies.append(self)
+				body.add_collision_exception_with(self)
 			if $AnimatedSprite.flip_h:
 				body.linear_velocity = Vector2(-kick_force.x, kick_force.y)
+				body.angular_velocity = kick_spin
 			else:
 				body.linear_velocity = kick_force
+				body.angular_velocity = -kick_spin
 		
