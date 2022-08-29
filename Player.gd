@@ -25,6 +25,29 @@ export var air_deceleration = 7000
 export var air_acceleration = 6000
 export var air_friction = 2000
 export var min_cancelable_jump_scalar = 0.1
+
+export var player_number = 0
+var input_dict = {
+	0: {
+		"jump": "jump",
+		"shoot": "shoot",
+		"kick": "kick",
+		"walk_left": "walk_left",
+		"walk_right": "walk_right",
+		"up": "up",
+		"down": "down"
+	},
+	1: {
+		"jump": "jump_p2",
+		"shoot": "shoot_p2",
+		"kick": "kick_p2",
+		"walk_left": "walk_left_p2",
+		"walk_right": "walk_right_p2",
+		"up": "up_p2",
+		"down": "down_p2"
+	}
+}
+
 var collision_push = 100
 var kick_force = Vector2(6000, -600)
 
@@ -72,11 +95,11 @@ func _ready():
 
 
 func _input(event):
-	if event.is_action_pressed("jump"):
+	if event.is_action_pressed(input_dict[player_number]["jump"]):
 		jump_buffer_count = JUMP_BUFFER_FRAMES
-	if event.is_action_pressed("shoot") && gun_enabled:
+	if event.is_action_pressed(input_dict[player_number]["shoot"]) && gun_enabled:
 		shooting = true
-	elif event.is_action_released("shoot") || !gun_enabled:
+	elif event.is_action_released(input_dict[player_number]["shoot"]) || !gun_enabled:
 		shooting = false
 
 
@@ -96,7 +119,7 @@ func state_ground(dt):
 		state = State.AIR
 		return
 	
-	if Input.is_action_just_pressed("kick"):
+	if Input.is_action_just_pressed(input_dict[player_number]["kick"]):
 		var _collision = move_and_collide(Vector2(0, -20))
 		if not frozen:
 			kick()
@@ -174,7 +197,7 @@ func state_air(dt):
 	
 	if (
 		jump_ended == false
-		and not Input.is_action_pressed("jump")
+		and not Input.is_action_pressed(input_dict[player_number]["jump"])
 		and velocity.y < jump_speed * min_cancelable_jump_scalar
 	):
 		jump_ended = true
@@ -251,15 +274,15 @@ func kick():
 					body.linear_velocity = kick_force
 
 func _physics_process(delta):
-	var left_input = Input.is_action_pressed("walk_left")
-	var right_input = Input.is_action_pressed("walk_right")
+	var left_input = Input.is_action_pressed(input_dict[player_number]["walk_left"])
+	var right_input = Input.is_action_pressed(input_dict[player_number]["walk_right"])
 	move_direction = int(right_input) - int(left_input)
 	
 	if move_direction != 0:
 		$ShootCenter.scale.x = move_direction
 	if shooting:
-		var up_input = Input.is_action_pressed("up")
-		var down_input = Input.is_action_pressed("down")
+		var up_input = Input.is_action_pressed(input_dict[player_number]["up"])
+		var down_input = Input.is_action_pressed(input_dict[player_number]["down"])
 		var hand_rotation_deg = 0
 		if move_direction != 0:
 			if up_input:
