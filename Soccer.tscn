@@ -96,7 +96,7 @@ shape = SubResource( 6 )
 [node name="Logo" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0.541176 )
 position = Vector2( 0, -250 )
-z_index = 30
+z_index = -30
 frames = SubResource( 7 )
 playing = true
 __meta__ = {

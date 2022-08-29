@@ -8,6 +8,29 @@ var ignored_bodies = []
 var skip_unstuck = false
 
 var shadow_scale = 1
+var anim_angle = 0
+var sprite_path = ""
+var shadow_path = ""
+
+
+func _ready():
+	var new_sprite = $AnimatedSprite.duplicate()
+	$AnimatedSprite.queue_free()
+	get_parent().add_child(new_sprite)
+	sprite_path = new_sprite.get_path()
+	
+	var new_shadow = $ShadowSprite.duplicate()
+	$ShadowSprite.queue_free()
+	get_parent().add_child(new_shadow)
+	shadow_path = new_shadow.get_path()
+
+
+func _process(delta):
+	if position.y >= 405.900055:
+		position.y = 405.900055
+	get_node(sprite_path).position = position
+	get_node(shadow_path).position = Vector2(position.x, 475)
+	shadow_scale = (1500 - abs(position.y - 475)) / 1500
 
 
 func _physics_process(delta):
@@ -35,12 +58,14 @@ func _physics_process(delta):
 			if collider.is_in_group("player"):
 				if (
 					collider.position.y - position.y < 10
-					and collider.velocity.y > 0
+					and collider.velocity.y >= 0
 				):
-					collider.velocity.y = -0.77*collider.jump_speed
 					collider.jump_ended = true
 					linear_velocity.y = 0.35*max_speed
 					collider.move_and_collide(Vector2(0,-30))
+					collider.kick_frame_count = 0
+					collider.state = collider.State.AIR
+					collider.velocity.y = -0.77*collider.jump_speed
 					collider.instance_create(collider.bounce_poof_scene, collider.position)
 					if collider.name == "PlayerBody":
 						linear_velocity.x = 600
@@ -57,6 +82,11 @@ func _physics_process(delta):
 				remove_collision_exception_with(body)
 				#print("exception removed")
 				ignored_bodies.erase(body)
-	if position.y >= 405.900055:
-		position.y = 405.900055
 				
+
+
+func _on_AnimatedSprite_frame_changed():
+	get_node(sprite_path).scale = Vector2(rand_range(0.265,0.275), rand_range(0.265,0.275))
+	anim_angle = transform.get_rotation()
+	get_node(sprite_path).rotation = anim_angle
+	get_node(shadow_path).scale = Vector2(0.54, 0.84) * shadow_scale

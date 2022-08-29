@@ -32,8 +32,8 @@ radius = 138.006
 height = 59.1457
 
 [sub_resource type="CapsuleShape2D" id=6]
-radius = 155.75
-height = 183.882
+radius = 149.835
+height = 181.381
 
 [node name="PlayerBody" type="KinematicBody2D" groups=["player"]]
 scale = Vector2( 0.507223, 0.507223 )
@@ -117,10 +117,9 @@ script = ExtResource( 14 )
 
 [node name="FootKickPosition" type="Position2D" parent="KickArea"]
 position = Vector2( 488.937, -151.807 )
-scale = Vector2( 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KickArea"]
-position = Vector2( 149.835, -124.206 )
+position = Vector2( 143.921, -122.234 )
 rotation = 1.5708
 scale = Vector2( 0.999998, 0.999998 )
 shape = SubResource( 6 )
