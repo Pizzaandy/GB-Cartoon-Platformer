@@ -12,7 +12,7 @@ var health = 100
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AnimatedSprite.animation = "Idle"
-	$ShadowSprite.modulate = Color(1, 1, 1, shadow_alpha)
+	#$ShadowSprite.modulate = Color(1, 1, 1, shadow_alpha)
 	$AnimationPlayer.play("Start")
 
 func damage(amnt):
@@ -55,6 +55,7 @@ func _physics_process(delta):
 #
 func _on_AnimatedSprite_frame_changed():
 	pass
+#	$ShadowSprite.modulate = Color(1, 1, 1, shadow_alpha)
 #	var current_anim = $AnimatedSprite.animation
 #	var frame = $AnimatedSprite.frame
 #

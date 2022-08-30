@@ -43,7 +43,7 @@ func _physics_process(_delta):
 		activate()
 		for player in overlapping:
 			player.frozen = true
-	if (overlapping.size() >= 1):
+	if (overlapping.size() >= 2):
 		modulate = Color(1, 1, 1, 1)
 		if timer_running == false:
 			timer_running = true
@@ -51,7 +51,10 @@ func _physics_process(_delta):
 	else:
 		timer_running = false
 		activation_t = -1
-		modulate = Color(1, 1, 1, 0.5)
+		if (overlapping.size() >= 1):
+			modulate = Color(1, 1, 1, 0.75)
+		else:
+			modulate = Color(1, 1, 1, 0.5)
 		
 
 func activate():

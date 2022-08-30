@@ -110,6 +110,7 @@ bounce = 0.99
 extents = Vector2( 1148.5, 54 )
 
 [node name="Start" type="Node2D"]
+position = Vector2( 20, 0 )
 script = ExtResource( 6 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 1 )]
@@ -150,7 +151,7 @@ scale = Vector2( 1.07, 1.07 )
 z_index = -5
 frames = SubResource( 8 )
 animation = "Idle"
-frame = 1
+frame = 2
 playing = true
 script = ExtResource( 231 )
 
@@ -179,7 +180,7 @@ scale = Vector2( 1.07, 1.07 )
 z_index = -5
 frames = SubResource( 8 )
 animation = "Idle"
-frame = 1
+frame = 2
 playing = true
 flip_h = true
 script = ExtResource( 231 )
@@ -206,16 +207,17 @@ pitch_scale = 0.9
 stream = ExtResource( 4 )
 
 [node name="PlayerBody" parent="." instance=ExtResource( 206 )]
-position = Vector2( -545, 425 )
+position = Vector2( -192, 470 )
 scale = Vector2( 0.507, 0.507 )
-collision_mask = 1
 
 [node name="PlayerBody2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 198, 469 )
 
 [node name="GuideNumbers" type="AnimatedSprite" parent="."]
 self_modulate = Color( 1, 1, 1, 0.427451 )
+position = Vector2( -26, 15 )
 frames = SubResource( 11 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]

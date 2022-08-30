@@ -37,8 +37,8 @@ height = 181.381
 
 [node name="PlayerBody" type="KinematicBody2D" groups=["player"]]
 scale = Vector2( 0.507223, 0.507223 )
-collision_layer = 66
-collision_mask = 2
+collision_layer = 64
+collision_mask = 3
 script = ExtResource( 1 )
 projectile = ExtResource( 13 )
 
@@ -50,15 +50,15 @@ shape = SubResource( 5 )
 modulate = Color( 1, 1, 1, 0.643137 )
 scale = Vector2( 1, 1.5 )
 frames = SubResource( 4 )
-frame = 1
+frame = 2
 playing = true
 offset = Vector2( 0, -232.639 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 2.38419e-07, 5.68434e-14 )
 frames = ExtResource( 2 )
-animation = "Kick"
-frame = 4
+animation = "Idle"
+frame = 5
 playing = true
 offset = Vector2( -5.91456, -232.64 )
 
@@ -74,7 +74,7 @@ mix_target = 2
 
 [node name="SoundRun" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-volume_db = -9.0
+volume_db = -13.0
 mix_target = 2
 
 [node name="SoundKick" type="AudioStreamPlayer" parent="."]
@@ -101,6 +101,7 @@ cast_to = Vector2( 0, 2000 )
 position = Vector2( 0, -214.896 )
 
 [node name="Hand" type="Sprite" parent="ShootCenter"]
+visible = false
 position = Vector2( 238.554, -1.52588e-05 )
 texture = ExtResource( 12 )
 
@@ -111,6 +112,7 @@ position = Vector2( 325.301, -1.52588e-05 )
 wait_time = 0.2
 
 [node name="KickArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 14 )

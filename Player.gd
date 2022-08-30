@@ -283,6 +283,9 @@ func kick():
 func _physics_process(delta):
 	var left_input = Input.is_action_pressed(input_dict[player_number]["walk_left"])
 	var right_input = Input.is_action_pressed(input_dict[player_number]["walk_right"])
+	if frozen:
+		left_input = 0
+		right_input = 0
 	move_direction = int(right_input) - int(left_input)
 	
 	if move_direction != 0:
@@ -409,7 +412,8 @@ func _physics_process(delta):
 	jump_buffer_count = max(jump_buffer_count - 1, 0)
 	kick_frame_count = max(kick_frame_count - 1, 0)
 	ball_overlap_frames = max(ball_overlap_frames - 1, 0)
-	
+
+
 func _on_AnimatedSprite_animation_finished():
 	anim_finished = true
 
