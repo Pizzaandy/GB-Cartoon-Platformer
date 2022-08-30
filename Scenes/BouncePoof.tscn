@@ -21,6 +21,6 @@ animations = [ {
 [node name="SmokeSprite" instance=ExtResource( 1 )]
 position = Vector2( -3, 48 )
 frames = SubResource( 1 )
-frame = 3
+frame = 2
 offset = Vector2( -6.67711, -102.201 )
 randomize_angle = false

@@ -52,13 +52,14 @@ func _physics_process(_delta):
 		timer_running = false
 		activation_t = -1
 		if (overlapping.size() >= 1):
-			modulate = Color(1, 1, 1, 0.75)
+			modulate = Color(1, 1, 1, 0.68)
 		else:
-			modulate = Color(1, 1, 1, 0.5)
+			modulate = Color(1, 1, 1, 0.25)
 		
 
 func activate():
 	activated = true
 	animation = "Open"
 	z_index = 1000
+	get_parent().get_node("SoccerBall").queue_free()
 

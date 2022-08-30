@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/dribble.ogg-3cc2174293f45fb95a45ea71b153b103.oggstr"
+
+[deps]
+
+source_file="res://Sound/dribble.ogg"
+dest_files=[ "res://.import/dribble.ogg-3cc2174293f45fb95a45ea71b153b103.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

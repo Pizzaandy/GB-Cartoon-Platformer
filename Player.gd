@@ -232,6 +232,8 @@ func player_jump(current_velocity):
 	#print("jumped")
 	#x_stretch = 0.7
 	#y_stretch = 1.3
+	if frozen:
+		return Vector2.ZERO
 	$SoundJump.pitch_scale = rand_range(0.9, 1.1)
 	$SoundJump.play()
 	target_anim_state = "Jump"
@@ -239,6 +241,8 @@ func player_jump(current_velocity):
 
 
 func on_land():
+	if frozen:
+		return
 	$SoundLand.pitch_scale = rand_range(0.9, 1.1)
 	$SoundLand.play()
 	if jump_buffer_count > 0:
@@ -265,7 +269,7 @@ func kick():
 		for body in bodies:
 			if body.is_in_group("soccerball"):
 				if not kick_success:
-					$SoundKickSuccess.pitch_scale = rand_range(0.9, 1.1)
+					$SoundKickSuccess.pitch_scale = rand_range(1.05, 1.2)
 					$SoundKickSuccess.play()
 					instance_create(kick_hit_scene, body.global_position)
 					ball_overlap_frames = 15
@@ -444,7 +448,7 @@ func _on_KickArea_body_entered(body):
 		if body.is_in_group("soccerball"):
 			if not kick_success:
 				kick_success = true
-				$SoundKickSuccess.pitch_scale = rand_range(0.9, 1.1)
+				$SoundKickSuccess.pitch_scale = rand_range(1.05, 1.2)
 				$SoundKickSuccess.play()
 				instance_create(kick_hit_scene, body.global_position)
 				ball_overlap_frames = 10

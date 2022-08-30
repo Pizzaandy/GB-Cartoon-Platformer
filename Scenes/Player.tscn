@@ -5,8 +5,8 @@
 [ext_resource path="res://Sound/retrojump.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Sound/land2.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Sound/run_loop.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Sound/kick.ogg" type="AudioStream" id=6]
-[ext_resource path="res://Sound/kick_success.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Sound/kick_success2.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Sound/kick.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Animations/G Animations/G_shadow/G_shadow0029.png" type="Texture" id=8]
 [ext_resource path="res://Animations/G Animations/G_shadow/G_shadow0031.png" type="Texture" id=9]
 [ext_resource path="res://Animations/G Animations/G_shadow/G_shadow0028.png" type="Texture" id=10]
@@ -50,7 +50,6 @@ shape = SubResource( 5 )
 modulate = Color( 1, 1, 1, 0.643137 )
 scale = Vector2( 1, 1.5 )
 frames = SubResource( 4 )
-frame = 2
 playing = true
 offset = Vector2( 0, -232.639 )
 
@@ -58,7 +57,7 @@ offset = Vector2( 0, -232.639 )
 position = Vector2( 2.38419e-07, 5.68434e-14 )
 frames = ExtResource( 2 )
 animation = "Idle"
-frame = 5
+frame = 15
 playing = true
 offset = Vector2( -5.91456, -232.64 )
 
@@ -78,16 +77,17 @@ volume_db = -13.0
 mix_target = 2
 
 [node name="SoundKick" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-volume_db = -7.0
-mix_target = 2
-
-[node name="SoundKickSuccess" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -7.0
 mix_target = 2
 
+[node name="SoundKickSuccess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -7.0
+mix_target = 2
+
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, -256.297 )

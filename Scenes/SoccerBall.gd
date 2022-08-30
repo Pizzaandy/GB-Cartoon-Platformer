@@ -12,6 +12,8 @@ var anim_angle = 0
 var sprite_path = ""
 var shadow_path = ""
 
+var smoke_explosion_scene = preload("res://Scenes/SmokeExplosion.tscn")
+
 
 func _ready():
 	var new_sprite = $AnimatedSprite.duplicate()
@@ -71,11 +73,19 @@ func _physics_process(delta):
 						linear_velocity.x = 600
 					else:
 						linear_velocity.x = -600
+					if not $SoundHit.playing:
+						$SoundHit.pitch_scale = rand_range(0.7, 0.9)
+						$SoundHit.play()
+						$SoundHit2.pitch_scale = rand_range(1.8, 2.3)
+						$SoundHit2.play()
 				else:
 					linear_velocity.x = (
 						sign(linear_velocity.x) * clamp(abs(linear_velocity.x), 200, 1000)
 					)
 					linear_velocity.y = clamp(linear_velocity.y, -1700, -900)
+					if not $SoundHit.playing:
+						$SoundHit.pitch_scale = rand_range(1.1, 1.3)
+						$SoundHit.play()
 	if colliding.size() <= 1:
 		for body in ignored_bodies:
 			if body.ball_overlap_frames <= 1:
@@ -90,3 +100,15 @@ func _on_AnimatedSprite_frame_changed():
 	anim_angle = transform.get_rotation()
 	get_node(sprite_path).rotation = anim_angle
 	get_node(shadow_path).scale = Vector2(0.54, 0.84) * shadow_scale
+
+
+func instance_create(scene, pos):
+	var new_scene = scene.instance()
+	new_scene.position = pos
+	get_parent().add_child(new_scene)
+
+
+func _exit_tree():
+	instance_create(smoke_explosion_scene, position)
+	get_node(shadow_path).queue_free()
+	get_node(sprite_path).queue_free()

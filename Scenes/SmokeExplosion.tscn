@@ -1,0 +1,30 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/GroundSmoke.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Animations/FX/SmokeExplosion/smoke_explosion0003.png" type="Texture" id=2]
+[ext_resource path="res://Animations/FX/SmokeExplosion/smoke_explosion0005.png" type="Texture" id=3]
+[ext_resource path="res://Animations/FX/SmokeExplosion/smoke_explosion0008.png" type="Texture" id=4]
+[ext_resource path="res://Animations/FX/SmokeExplosion/smoke_explosion0001.png" type="Texture" id=5]
+[ext_resource path="res://Animations/FX/SmokeExplosion/smoke_explosion0004.png" type="Texture" id=6]
+[ext_resource path="res://Animations/FX/SmokeExplosion/smoke_explosion0009.png" type="Texture" id=7]
+[ext_resource path="res://Animations/FX/SmokeExplosion/smoke_explosion0007.png" type="Texture" id=8]
+[ext_resource path="res://Animations/FX/SmokeExplosion/smoke_explosion0010.png" type="Texture" id=9]
+[ext_resource path="res://Animations/FX/SmokeExplosion/smoke_explosion0011.png" type="Texture" id=10]
+[ext_resource path="res://Animations/FX/SmokeExplosion/smoke_explosion0006.png" type="Texture" id=11]
+[ext_resource path="res://Animations/FX/SmokeExplosion/smoke_explosion0002.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 12 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 11 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
+
+[node name="SmokeSprite" instance=ExtResource( 1 )]
+position = Vector2( -17, -55 )
+scale = Vector2( 0.6, 0.6 )
+frames = SubResource( 1 )
+frame = 10
+offset = Vector2( 7.16904, 7.41439 )
+randomize_angle = false

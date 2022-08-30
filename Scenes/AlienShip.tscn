@@ -171,7 +171,7 @@ script = ExtResource( 2 )
 position = Vector2( -23, 190 )
 scale = Vector2( 0.890123, 1.45926 )
 frames = SubResource( 2 )
-frame = 2
+frame = 3
 playing = true
 offset = Vector2( 8, -235 )
 

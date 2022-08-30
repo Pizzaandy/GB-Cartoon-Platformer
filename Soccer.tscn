@@ -68,11 +68,13 @@ physics_material_override = SubResource( 15 )
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="GoalRoofs"]
 position = Vector2( -829.5, -1.5 )
 rotation = 0.174533
+scale = Vector2( 1, 2 )
 shape = SubResource( 12 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="GoalRoofs"]
 position = Vector2( 829.5, -1.5 )
 rotation = -0.174533
+scale = Vector2( 1, 2 )
 shape = SubResource( 12 )
 
 [node name="Floor" type="StaticBody2D" parent="." groups=["floor"]]
@@ -98,6 +100,7 @@ modulate = Color( 1, 1, 1, 0.541176 )
 position = Vector2( 0, -250 )
 z_index = -30
 frames = SubResource( 7 )
+frame = 1
 playing = true
 __meta__ = {
 "_editor_description_": ""
