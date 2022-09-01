@@ -76,6 +76,11 @@ animations = [ {
 "name": "Close",
 "speed": 24.0
 }, {
+"frames": [ ExtResource( 212 ), ExtResource( 211 ), ExtResource( 210 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 24.0
+}, {
 "frames": [ ExtResource( 233 ), ExtResource( 220 ), ExtResource( 217 ), ExtResource( 219 ), ExtResource( 235 ), ExtResource( 232 ), ExtResource( 234 ) ],
 "loop": false,
 "name": "Open",
@@ -84,11 +89,6 @@ animations = [ {
 "frames": [ ExtResource( 224 ), ExtResource( 225 ), ExtResource( 227 ), ExtResource( 228 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 213 ), ExtResource( 215 ), ExtResource( 214 ), ExtResource( 216 ) ],
 "loop": false,
 "name": "Disappear",
-"speed": 24.0
-}, {
-"frames": [ ExtResource( 212 ), ExtResource( 211 ), ExtResource( 210 ) ],
-"loop": true,
-"name": "Idle",
 "speed": 24.0
 } ]
 
@@ -142,7 +142,7 @@ shape = SubResource( 6 )
 [node name="Logo" type="AnimatedSprite" parent="."]
 z_index = -30
 frames = SubResource( 7 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="HoleR" type="AnimatedSprite" parent="."]
@@ -217,7 +217,7 @@ position = Vector2( 198, 469 )
 self_modulate = Color( 1, 1, 1, 0.427451 )
 position = Vector2( -26, 15 )
 frames = SubResource( 11 )
-frame = 5
+frame = 7
 playing = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/194814__makosan__2012-olympics-stadium-cheer.wav-b55bc85789823e0d10fa4dafa474dced.sample"
+
+[deps]
+
+source_file="res://Sound/194814__makosan__2012-olympics-stadium-cheer.wav"
+dest_files=[ "res://.import/194814__makosan__2012-olympics-stadium-cheer.wav-b55bc85789823e0d10fa4dafa474dced.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

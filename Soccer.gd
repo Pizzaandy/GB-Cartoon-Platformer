@@ -10,7 +10,7 @@ var soccerball_inst
 var lscore = 0
 var rscore = 0
 
-var win_num = 2
+var win_num = 10
 
 onready var left_confetti_pos = $GoalLFront/GoalLConfettiAnchor
 onready var right_confetti_pos = $GoalRFront/GoalRConfettiAnchor
@@ -35,6 +35,7 @@ func _on_GoalLArea_body_entered(body):
 		soccerball_inst = soccerball_res.instance()
 		self.add_child(soccerball_inst)
 		lscore += 1
+		$AudioStreamPlayerR.play()
 		
 		if lscore == win_num:
 			win(true)
@@ -54,6 +55,8 @@ func _on_GoalRArea_body_entered(body):
 		soccerball_inst.queue_free()
 		soccerball_inst = soccerball_res.instance()
 		self.add_child(soccerball_inst)
+		
+		$AudioStreamPlayerL.play()
 	
 		if rscore == win_num:
 			win(false)
@@ -85,3 +88,5 @@ func win(is_left_win):
 
 func _on_Camera2D_wipe_finished():
 	get_tree().change_scene(start_scene)
+	
+	
