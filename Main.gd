@@ -14,7 +14,9 @@ func boss_killed():
 	$T3.queue_free()
 
 func _ready():
-	$SpawnUFOTimer.start()
+	pass
+	#$SpawnUFOTimer.start()
+	#$BigBombTimer.start()
 
 func _on_SpawnUFOTimer_timeout():
 	$SpawnUFOTimer.wait_time = rand_range(12, 18)

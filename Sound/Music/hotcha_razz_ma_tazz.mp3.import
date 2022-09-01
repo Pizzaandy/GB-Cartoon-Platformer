@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/hotcha_razz_ma_tazz.mp3-0665dab3434fda60e3e64a6cfdde6e0e.mp3str"
+
+[deps]
+
+source_file="res://Sound/Music/hotcha_razz_ma_tazz.mp3"
+dest_files=[ "res://.import/hotcha_razz_ma_tazz.mp3-0665dab3434fda60e3e64a6cfdde6e0e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -6,9 +6,9 @@
 [ext_resource path="res://Main.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/MiniUfo.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/BigAlienBomb.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sound/Music/1932 Cab Calloway - Hot Water (instrumental).ogg" type="AudioStream" id=7]
 [ext_resource path="res://Scenes/AlienShip.tscn" type="PackedScene" id=204]
 [ext_resource path="res://Background/2_midground.png" type="Texture" id=205]
-[ext_resource path="res://Sound/Music/moonglow_cab_calloway.mp3" type="AudioStream" id=209]
 [ext_resource path="res://Background/7_sky.png" type="Texture" id=210]
 [ext_resource path="res://Background/4_letters.png" type="Texture" id=211]
 [ext_resource path="res://Background/3_mountains.png" type="Texture" id=212]
@@ -27,6 +27,7 @@ miniUFO = ExtResource( 5 )
 bigBomb = ExtResource( 6 )
 
 [node name="Camera2D" parent="." instance=ExtResource( 3 )]
+bob_amount = 8
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 follow_viewport_enable = true
@@ -103,13 +104,15 @@ position = Vector2( 21, 490 )
 shape = SubResource( 1 )
 
 [node name="AlienBody" parent="." instance=ExtResource( 204 )]
-position = Vector2( 741, 245 )
+position = Vector2( 645, 239 )
 
 [node name="PlayerBody" parent="." instance=ExtResource( 1 )]
 position = Vector2( -545, 425 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 209 )
+stream = ExtResource( 7 )
+volume_db = -7.0
+autoplay = true
 
 [node name="Wall" type="StaticBody2D" parent="."]
 collision_layer = 2
@@ -119,7 +122,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2( 558, -17 )
+position = Vector2( 502, -23 )
 shape = SubResource( 7 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Wall"]
@@ -161,7 +164,6 @@ position = Vector2( 547, 157 )
 
 [node name="BigBombTimer" type="Timer" parent="."]
 wait_time = 12.0
-autostart = true
 
 [node name="BombBarrage" type="Timer" parent="."]
 one_shot = true
