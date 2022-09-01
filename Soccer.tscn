@@ -100,7 +100,7 @@ modulate = Color( 1, 1, 1, 0.541176 )
 position = Vector2( 0, -250 )
 z_index = -30
 frames = SubResource( 7 )
-frame = 1
+frame = 2
 playing = true
 __meta__ = {
 "_editor_description_": ""
@@ -116,6 +116,10 @@ scale = Vector2( 1, 1.2 )
 z_index = 10
 texture = ExtResource( 210 )
 
+[node name="GoalRConfettiAnchor" type="Node2D" parent="GoalRFront"]
+position = Vector2( -795, 255.833 )
+scale = Vector2( 1, 0.833333 )
+
 [node name="GoalRBack" type="Sprite" parent="GoalRFront"]
 modulate = Color( 0.580392, 0.87451, 0.87451, 1 )
 z_index = -10
@@ -124,6 +128,8 @@ texture = ExtResource( 211 )
 
 [node name="GoalRArea" type="Area2D" parent="GoalRFront"]
 position = Vector2( -847, 259.167 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoalRFront/GoalRArea"]
 shape = SubResource( 13 )
@@ -135,6 +141,11 @@ scale = Vector2( -1, 1.2 )
 z_index = 10
 texture = ExtResource( 210 )
 
+[node name="GoalLConfettiAnchor" type="Node2D" parent="GoalLFront"]
+position = Vector2( -791, 258.333 )
+rotation = 3.14159
+scale = Vector2( 1, -0.833333 )
+
 [node name="GoalLBack" type="Sprite" parent="GoalLFront"]
 z_index = -10
 z_as_relative = false
@@ -144,6 +155,8 @@ texture = ExtResource( 211 )
 position = Vector2( -842, 263.333 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoalLFront/GoalLArea"]
 shape = SubResource( 13 )
@@ -151,3 +164,6 @@ shape = SubResource( 13 )
 [node name="StartRoomBackground" type="Sprite" parent="."]
 z_index = -1000
 texture = ExtResource( 205 )
+
+[connection signal="body_entered" from="GoalRFront/GoalRArea" to="." method="_on_GoalRArea_body_entered"]
+[connection signal="body_entered" from="GoalLFront/GoalLArea" to="." method="_on_GoalLArea_body_entered"]
