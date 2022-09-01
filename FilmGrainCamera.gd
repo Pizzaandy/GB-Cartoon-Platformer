@@ -5,9 +5,12 @@ var currentViewportHeight = 0
 var camera_wave_t = 0
 export var bob_amount = 0
 
+signal wipe_finished
+
 var do_circle_wipe = false
 var circle_size = 0
 
+var last_circle_size = -1
 
 func _ready():
 	currentViewportWidth = get_viewport().size.x
@@ -26,6 +29,12 @@ func _process(delta):
 		currentViewportHeight = viewportHeight
 	camera_wave_t = fmod(camera_wave_t + delta, 2*PI)
 	position = Vector2(0, bob_amount * (sin(camera_wave_t)+1))
+	
+	if last_circle_size > 0 and circle_size == 0:
+		emit_signal("wipe_finished")
+	
+	last_circle_size = circle_size
+	
 
 
 var do_blur = false

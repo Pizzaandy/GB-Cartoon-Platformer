@@ -96,11 +96,15 @@ physics_material_override = SubResource( 16 )
 position = Vector2( 124, -650 )
 shape = SubResource( 6 )
 
+[node name="CeilingConfettiAnchor" type="Node2D" parent="Ceiling"]
+position = Vector2( 44, 371 )
+
 [node name="Logo" type="AnimatedSprite" parent="."]
 modulate = Color( 1, 1, 1, 0.541176 )
 position = Vector2( 0, -250 )
 z_index = -30
 frames = SubResource( 7 )
+frame = 1
 playing = true
 __meta__ = {
 "_editor_description_": ""
@@ -175,5 +179,6 @@ custom_fonts/font = ExtResource( 3 )
 text = "0:0"
 align = 1
 
+[connection signal="wipe_finished" from="Camera2D" to="." method="_on_Camera2D_wipe_finished"]
 [connection signal="body_entered" from="GoalRFront/GoalRArea" to="." method="_on_GoalRArea_body_entered"]
 [connection signal="body_entered" from="GoalLFront/GoalLArea" to="." method="_on_GoalLArea_body_entered"]

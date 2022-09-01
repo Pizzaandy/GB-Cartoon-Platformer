@@ -142,6 +142,7 @@ shape = SubResource( 6 )
 [node name="Logo" type="AnimatedSprite" parent="."]
 z_index = -30
 frames = SubResource( 7 )
+frame = 2
 playing = true
 
 [node name="HoleR" type="AnimatedSprite" parent="."]
@@ -150,7 +151,6 @@ scale = Vector2( 1.1, 1.07 )
 z_index = -5
 frames = SubResource( 8 )
 animation = "Idle"
-frame = 2
 playing = true
 script = ExtResource( 231 )
 
@@ -180,7 +180,6 @@ scale = Vector2( 1.1, 1.07 )
 z_index = -5
 frames = SubResource( 8 )
 animation = "Idle"
-frame = 2
 playing = true
 flip_h = true
 script = ExtResource( 231 )
@@ -218,7 +217,7 @@ position = Vector2( 198, 469 )
 self_modulate = Color( 1, 1, 1, 0.427451 )
 position = Vector2( -26, 15 )
 frames = SubResource( 11 )
-frame = 1
+frame = 5
 playing = true
 
 [node name="Music" type="AudioStreamPlayer" parent="."]

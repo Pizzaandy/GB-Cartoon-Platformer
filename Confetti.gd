@@ -57,6 +57,8 @@ export (float) var timer_wait_time = 1.0
 
 export (float) var rotate_rad = 0.0
 
+var speed_multiplier = 1
+
 var particles = []
 var particles_amount
 var particles_position
@@ -163,7 +165,7 @@ func _get_random_size():
 
 
 func _get_random_velocity():
-	return Vector2(rand_range(-200, 200), rand_range(-600, -800))
+	return Vector2(rand_range(-200, 200), rand_range(-600, -800)) * speed_multiplier
 
 
 func _set_emitting(new_value):
