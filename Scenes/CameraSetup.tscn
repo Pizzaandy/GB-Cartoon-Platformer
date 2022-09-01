@@ -373,7 +373,7 @@ void fragment()
 shader = SubResource( 11 )
 shader_param/screen_size = Vector2( 2000, 1100 )
 shader_param/enabled = true
-shader_param/grain_amount = 0.1
+shader_param/grain_amount = 0.05
 shader_param/colored = true
 shader_param/color_amount = 0.7
 shader_param/grain_size = 9.0
@@ -392,18 +392,18 @@ script = ExtResource( 135 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 139 )
-volume_db = -12.0
+volume_db = -10.0
 autoplay = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-modulate = Color( 1, 1, 1, 0.0980392 )
+modulate = Color( 1, 1, 1, 0.137255 )
 self_modulate = Color( 0.552941, 0.552941, 0.552941, 1 )
 material = SubResource( 3 )
 position = Vector2( 0, -3 )
 z_index = 1000
 z_as_relative = false
 frames = SubResource( 4 )
-frame = 129
+frame = 181
 playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -434,7 +434,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="NoisePass" type="ColorRect" parent="CanvasLayer"]
-modulate = Color( 0.756863, 0.756863, 0.756863, 0.137255 )
+modulate = Color( 0.756863, 0.756863, 0.756863, 0.0784314 )
 material = SubResource( 12 )
 anchor_right = 1.0
 anchor_bottom = 1.0

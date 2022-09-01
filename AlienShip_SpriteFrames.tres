@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=99 format=2]
+[gd_resource type="SpriteFrames" load_steps=131 format=2]
 
 [ext_resource path="res://Animations/AlienAnimations/RocketIdle/rocket_idle0017.png" type="Texture" id=1]
 [ext_resource path="res://Animations/AlienAnimations/RocketIdle/rocket_idle0015.png" type="Texture" id=2]
@@ -98,17 +98,64 @@
 [ext_resource path="res://Animations/AlienAnimations/AlienIntro/alien_intro0054.png" type="Texture" id=96]
 [ext_resource path="res://Animations/AlienAnimations/AlienIntro/alien_intro0055.png" type="Texture" id=97]
 [ext_resource path="res://Animations/AlienAnimations/AlienIntro/alien_intro0057.png" type="Texture" id=98]
+[ext_resource path="res://Animations/AlienAnimations/AlienChargeUpBoil/alien_chargeup_boil0227.png" type="Texture" id=99]
+[ext_resource path="res://Animations/AlienAnimations/AlienChargeUpBoil/alien_chargeup_boil0226.png" type="Texture" id=100]
+[ext_resource path="res://Animations/AlienAnimations/AlienChargeUp/alien_chargeup0222.png" type="Texture" id=101]
+[ext_resource path="res://Animations/AlienAnimations/AlienChargeUp/alien_chargeup0219.png" type="Texture" id=102]
+[ext_resource path="res://Animations/AlienAnimations/AlienChargeUp/alien_chargeup0218.png" type="Texture" id=103]
+[ext_resource path="res://Animations/AlienAnimations/AlienChargeUpBoil/alien_chargeup_boil0228.png" type="Texture" id=104]
+[ext_resource path="res://Animations/AlienAnimations/AlienChargeUp/alien_chargeup0220.png" type="Texture" id=105]
+[ext_resource path="res://Animations/AlienAnimations/AlienChargeUp/alien_chargeup0224.png" type="Texture" id=106]
+[ext_resource path="res://Animations/AlienAnimations/AlienChargeUp/alien_chargeup0221.png" type="Texture" id=107]
+[ext_resource path="res://Animations/AlienAnimations/AlienChargeUp/alien_chargeup0225.png" type="Texture" id=108]
+[ext_resource path="res://Animations/AlienAnimations/AlienChargeUp/alien_chargeup0223.png" type="Texture" id=109]
+[ext_resource path="res://Animations/AlienAnimations/AlienFire/alien_fire0235.png" type="Texture" id=110]
+[ext_resource path="res://Animations/AlienAnimations/AlienFire/alien_fire0234.png" type="Texture" id=111]
+[ext_resource path="res://Animations/AlienAnimations/AlienFire/alien_fire0233.png" type="Texture" id=112]
+[ext_resource path="res://Animations/AlienAnimations/AlienFire/alien_fire0236.png" type="Texture" id=113]
+[ext_resource path="res://Animations/AlienAnimations/AlienFire/alien_fire0232.png" type="Texture" id=114]
+[ext_resource path="res://Animations/AlienAnimations/AlienFireReturn/alien_fire_return0248.png" type="Texture" id=115]
+[ext_resource path="res://Animations/AlienAnimations/AlienFireReturn/alien_fire_return0244.png" type="Texture" id=116]
+[ext_resource path="res://Animations/AlienAnimations/AlienFireReturn/alien_fire_return0253.png" type="Texture" id=117]
+[ext_resource path="res://Animations/AlienAnimations/AlienFireReturn/alien_fire_return0251.png" type="Texture" id=118]
+[ext_resource path="res://Animations/AlienAnimations/AlienFireReturn/alien_fire_return0254.png" type="Texture" id=119]
+[ext_resource path="res://Animations/AlienAnimations/AlienFireReturn/alien_fire_return0241.png" type="Texture" id=120]
+[ext_resource path="res://Animations/AlienAnimations/AlienFireReturn/alien_fire_return0239.png" type="Texture" id=121]
+[ext_resource path="res://Animations/AlienAnimations/AlienFireReturn/alien_fire_return0242.png" type="Texture" id=122]
+[ext_resource path="res://Animations/AlienAnimations/AlienFireReturn/alien_fire_return0243.png" type="Texture" id=123]
+[ext_resource path="res://Animations/AlienAnimations/AlienFireReturn/alien_fire_return0250.png" type="Texture" id=124]
+[ext_resource path="res://Animations/AlienAnimations/AlienFireReturn/alien_fire_return0245.png" type="Texture" id=125]
+[ext_resource path="res://Animations/AlienAnimations/AlienFireReturn/alien_fire_return0249.png" type="Texture" id=126]
+[ext_resource path="res://Animations/AlienAnimations/AlienFireReturn/alien_fire_return0247.png" type="Texture" id=127]
+[ext_resource path="res://Animations/AlienAnimations/AlienFireReturn/alien_fire_return0252.png" type="Texture" id=128]
+[ext_resource path="res://Animations/AlienAnimations/AlienFireReturn/alien_fire_return0240.png" type="Texture" id=129]
+[ext_resource path="res://Animations/AlienAnimations/AlienFireReturn/alien_fire_return0246.png" type="Texture" id=130]
 
 [resource]
 animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 16 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 14 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 24.0
+}, {
 "frames": [ ExtResource( 32 ), ExtResource( 23 ), ExtResource( 19 ), ExtResource( 27 ), ExtResource( 21 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 28 ), ExtResource( 22 ), ExtResource( 18 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 20 ) ],
 "loop": false,
 "name": "Land",
 "speed": 24.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 16 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 14 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 12 ), ExtResource( 1 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 37 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 34 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 52 ), ExtResource( 49 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 47 ) ],
 "loop": true,
-"name": "Idle",
+"name": "AlienIdle",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 103 ), ExtResource( 102 ), ExtResource( 105 ), ExtResource( 107 ), ExtResource( 101 ), ExtResource( 109 ), ExtResource( 106 ), ExtResource( 108 ) ],
+"loop": false,
+"name": "AlienChargeUp",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 100 ), ExtResource( 99 ), ExtResource( 104 ) ],
+"loop": true,
+"name": "AlienChargeUpBoil",
 "speed": 24.0
 }, {
 "frames": [ ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 92 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 82 ), ExtResource( 81 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 95 ), ExtResource( 98 ), ExtResource( 61 ), ExtResource( 70 ), ExtResource( 74 ), ExtResource( 77 ), ExtResource( 53 ), ExtResource( 65 ), ExtResource( 60 ), ExtResource( 69 ), ExtResource( 78 ), ExtResource( 80 ), ExtResource( 54 ), ExtResource( 73 ), ExtResource( 66 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 59 ), ExtResource( 62 ), ExtResource( 58 ), ExtResource( 57 ), ExtResource( 64 ), ExtResource( 72 ), ExtResource( 67 ), ExtResource( 79 ), ExtResource( 68 ), ExtResource( 71 ), ExtResource( 63 ) ],
@@ -116,9 +163,14 @@ animations = [ {
 "name": "AlienIntro",
 "speed": 24.0
 }, {
-"frames": [ ExtResource( 37 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 34 ), ExtResource( 33 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 52 ), ExtResource( 49 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 47 ) ],
-"loop": true,
-"name": "AlienIdle",
+"frames": [ ExtResource( 121 ), ExtResource( 129 ), ExtResource( 120 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 116 ), ExtResource( 125 ), ExtResource( 130 ), ExtResource( 127 ), ExtResource( 115 ), ExtResource( 126 ), ExtResource( 124 ), ExtResource( 118 ), ExtResource( 128 ), ExtResource( 117 ), ExtResource( 119 ) ],
+"loop": false,
+"name": "AlienFireReturn",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 114 ), ExtResource( 112 ), ExtResource( 111 ), ExtResource( 110 ), ExtResource( 113 ) ],
+"loop": false,
+"name": "AlienFire",
 "speed": 24.0
 }, {
 "frames": [ ExtResource( 84 ), ExtResource( 83 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ) ],

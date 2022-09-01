@@ -3,7 +3,7 @@ extends Camera2D
 var currentViewportWidth = 0
 var currentViewportHeight = 0
 var camera_wave_t = 0
-var bob_amount = 0
+export var bob_amount = 0
 
 var do_circle_wipe = false
 var circle_size = 0
